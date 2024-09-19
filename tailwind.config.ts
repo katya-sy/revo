@@ -23,8 +23,8 @@ const config: Config = {
         'sm': '100%',
         'md': '100%',
         'lg': '100%',
-        'xl': '1150px',
-        '2xl': '1150px',
+        'xl': '1182px',
+        '2xl': '1182px',
       },
     },
     extend: {
@@ -41,6 +41,7 @@ const config: Config = {
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
       },
     },
   },
