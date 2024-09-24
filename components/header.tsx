@@ -23,13 +23,13 @@ export const Header = () => {
             alt="Logo"
             className="min-w-max"
           />
-          <p className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight">
+          <h1 className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight">
             <span>Your</span>
             <span className="relative after:top-0 max-sm:after:-right-2 after:-right-4 after:bottom-0 max-sm:after:-left-2 after:-left-4 z-[2] after:-z-[2] after:absolute flex justify-center items-center after:bg-beige max-sm:w-max text-grey">
               personalized
             </span>
             <span>coffee</span>
-          </p>
+          </h1>
         </div>
         <div className="flex flex-shrink sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
@@ -62,7 +62,7 @@ export const Header = () => {
             </div>
           </button>
           <nav>
-            <ul className="flex flex-col gap-8 font-light font-nunito text-grey uppercase">
+            <ul className="flex flex-col gap-8 font-light text-grey uppercase">
               <li className="font-bold">Trang Chu</li>
               <li>Coffee</li>
               <li>Phin Ma Mau</li>
