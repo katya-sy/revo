@@ -7,7 +7,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-beige-light">
+    <>
       <div className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-16px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container">
         <div
           onClick={() => setOpen(false)}
@@ -73,6 +73,6 @@ export const Header = () => {
           </nav>
         </div>
       </div>
-    </div>
+    </>
   )
 }
