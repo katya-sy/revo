@@ -6,11 +6,7 @@ interface BenefitItemProps {
   text: string
 }
 
-export const BenefitItem: React.FC<BenefitItemProps> = ({
-  url,
-  title,
-  text,
-}) => {
+export const BenefitItem = ({ url, title, text }: BenefitItemProps) => {
   return (
     <div className="flex flex-col items-center gap-10">
       <Image src={url} width="80" height="80" alt="Benefit" />

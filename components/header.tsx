@@ -33,7 +33,7 @@ export const Header = () => {
         </div>
         <div className="flex flex-shrink sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
-            className="w-full object-cover"
+            className="h-auto object-cover"
             src="/header-image.png"
             width={688}
             height={768}

@@ -7,12 +7,12 @@ interface ProductCardProps {
   description: string
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+export const ProductCard = ({
   imgUrl,
   title,
   price,
   description,
-}) => {
+}: ProductCardProps) => {
   return (
     <div className="flex hover:shadow-product-card-shadow transition-shadow">
       <div className="bg-grey w-max">
