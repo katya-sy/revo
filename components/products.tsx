@@ -1,17 +1,28 @@
 'use client'
 import useEmblaCarousel from 'embla-carousel-react'
+import { EmblaOptionsType } from 'embla-carousel'
 import { useCallback } from 'react'
 import { ProductCard } from './product-card'
+import { Arrow } from './shared/arrow'
 
 export const Products = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start' })
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    containScroll: 'trimSnaps',
+  })
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
+    if (emblaApi)
+      if (emblaApi.canScrollPrev()) {
+        emblaApi.scrollPrev()
+      }
   }, [emblaApi])
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
+    if (emblaApi)
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext()
+      }
   }, [emblaApi])
 
   return (
@@ -22,9 +33,9 @@ export const Products = () => {
           CHUẨN GU ĐÚNG VỊ
         </h3>
       </div>
-      <div className="z-[2] flex flex-col gap-5" ref={emblaRef}>
+      <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex gap-8">
-          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-1/2">
+          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-[calc(50%-32px)]">
             <ProductCard
               imgUrl="/product-1.png"
               title="REVO Morning"
@@ -38,7 +49,7 @@ export const Products = () => {
               description="đắng, hậu ngọt, hương hoa"
             />
           </div>
-          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-1/2">
+          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-[calc(50%-32px)]">
             <ProductCard
               imgUrl="/product-1.png"
               title="REVO Morning"
@@ -52,7 +63,7 @@ export const Products = () => {
               description="đắng, hậu ngọt, hương hoa"
             />
           </div>
-          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-1/2">
+          <div className="flex flex-col flex-grow-0 flex-shrink-0 gap-8 basis-[calc(50%-32px)]">
             <ProductCard
               imgUrl="/product-1.png"
               title="REVO Morning"
@@ -67,14 +78,18 @@ export const Products = () => {
             />
           </div>
         </div>
-        <div className="flex justify-center gap-2">
-          <button className="embla__prev" onClick={scrollPrev}>
-            Prev
-          </button>
-          <button className="embla__next" onClick={scrollNext}>
-            Next
-          </button>
-        </div>
+        <button
+          className="top-1/2 -left-5 absolute flex justify-center items-center bg-beige rounded-full w-12 h-12 text-white -translate-y-1/2 rotate-180"
+          onClick={scrollPrev}
+        >
+          <Arrow />
+        </button>
+        <button
+          className="top-1/2 -right-5 absolute flex justify-center items-center bg-beige rounded-full w-12 h-12 text-white -translate-y-1/2"
+          onClick={scrollNext}
+        >
+          <Arrow />
+        </button>
       </div>
     </div>
   )

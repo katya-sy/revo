@@ -43,6 +43,9 @@ const config: Config = {
         montserrat: ['Montserrat', 'sans-serif'],
         nunito: ['Nunito', 'sans-serif'],
       },
+      boxShadow: {
+        'product-card-shadow': '0 4px 24px 0 rgba(205, 205, 205, 0.5);',
+      },
     },
   },
   plugins: [],

@@ -14,7 +14,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex">
+    <div className="flex hover:shadow-product-card-shadow transition-shadow">
       <div className="bg-grey w-max">
         <Image src={imgUrl} width={235} height={256} alt="product" />
       </div>
