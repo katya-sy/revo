@@ -1,4 +1,5 @@
 import { BenefitItem } from './benefit-item'
+import { BlockTitle } from './block-title'
 
 const benefits = [
   {
@@ -26,12 +27,10 @@ const benefits = [
 export const Benefits = () => {
   return (
     <div className="flex flex-col gap-16 py-24 container">
-      <div className="flex flex-col items-center gap-2 text-blue">
-        <h2 className="font-bold text-xl">Your Personalized Coffee</h2>
-        <h3 className="font-black font-montserrat text-3xl text-center uppercase">
-          COFFEE BUILD YOUR BASE
-        </h3>
-      </div>
+      <BlockTitle
+        title="Your Personalized Coffee"
+        subtitle="COFFEE BUILD YOUR BASE"
+      />
       <div className="gap-16 grid grid-cols-1 md:grid-cols-4 xs:grid-cols-2">
         {benefits.map((item) => (
           <BenefitItem

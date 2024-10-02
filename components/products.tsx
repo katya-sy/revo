@@ -4,6 +4,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { Arrow } from './shared/arrow'
 import { EmblaCarouselType } from 'embla-carousel'
 import { ProductSlide } from '@/components/product-slide'
+import { BlockTitle } from './block-title'
+import { Button } from './ui/button'
 
 export const Products = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
@@ -31,33 +33,28 @@ export const Products = () => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className="relative before:top-0 before:right-[85%] before:bottom-0 before:absolute flex flex-col gap-16 before:bg-blue py-24 before:w-[calc(100vw-85%)] container">
-      <div className="flex flex-col items-center gap-2 text-blue">
-        <h2 className="font-bold text-xl">Choose Your Favorite</h2>
-        <h3 className="font-black font-montserrat text-3xl text-center uppercase">
-          CHUẨN GU ĐÚNG VỊ
-        </h3>
-      </div>
+    <div className="relative before:top-0 xs:before:right-[85%] before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 before:bg-blue py-24 xs:before:w-[calc(100vw-85%)] before:w-[calc(100vw-93%)] container">
+      <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
       <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex">
           <ProductSlide transparent={nextBtnDisabled} />
           <ProductSlide />
           <ProductSlide transparent={prevBtnDisabled} />
         </div>
-        <button
-          className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} duration-300 transition-opacity flex -left-5 absolute justify-center items-center bg-beige rounded-full w-12 h-12 text-white -translate-y-1/2 rotate-180`}
+        <Button
+          className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 -left-5 absolute -translate-y-1/2 rotate-180`}
+          intent="icon"
           onClick={scrollPrev}
         >
           <Arrow />
-        </button>
-        {!nextBtnDisabled && (
-          <button
-            className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} duration-300 transition-opacity -right-5 absolute flex justify-center items-center bg-beige rounded-full w-12 h-12 text-white -translate-y-1/2`}
-            onClick={scrollNext}
-          >
-            <Arrow />
-          </button>
-        )}
+        </Button>
+        <Button
+          className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} -right-5 max-[1220px]:right-0 absolute  -translate-y-1/2`}
+          intent="icon"
+          onClick={scrollNext}
+        >
+          <Arrow />
+        </Button>
       </div>
     </div>
   )
