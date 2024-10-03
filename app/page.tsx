@@ -1,4 +1,5 @@
 import { Benefits } from '@/components/benefits'
+import { Footer } from '@/components/footer'
 import { Giftsets } from '@/components/giftsets'
 import { Header } from '@/components/header'
 import { Products } from '@/components/products'
@@ -10,6 +11,8 @@ export default function Home() {
       <Benefits />
       <Products />
       <Giftsets />
+
+      <Footer />
     </div>
   )
 }
