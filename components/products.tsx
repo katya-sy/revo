@@ -33,7 +33,7 @@ export const Products = () => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className="relative before:top-0 xs:before:right-[85%] before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 before:bg-blue py-24 xs:before:w-[calc(100vw-85%)] before:w-[calc(100vw-93%)] container">
+    <div className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container">
       <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
       <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex">
