@@ -15,7 +15,7 @@ export const Header = () => {
             open ? 'absolute md:hidden inset-0 z-[3] bg-black/60' : 'hidden'
           } md:hidden`}
         />
-        <div className="relative max-sm:top-10 max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
+        <div className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
           <Image
             src="/logo.svg"
             width={110}
@@ -31,7 +31,7 @@ export const Header = () => {
             <span>coffee</span>
           </h1>
         </div>
-        <div className="flex flex-shrink sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
+        <div className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
             className="h-auto object-cover"
             src="/header-image.png"
@@ -42,7 +42,7 @@ export const Header = () => {
         </div>
         <button
           onClick={() => setOpen(true)}
-          className="top-10 right-2 absolute md:hidden text-grey hover:text-beige transition-colors"
+          className="top-10 right-2 max-sm:z-[2] absolute md:hidden text-grey hover:text-beige transition-colors"
         >
           <Cart />
         </button>
