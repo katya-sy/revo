@@ -3,9 +3,9 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { useCallback, useEffect, useState } from 'react'
 import { Arrow } from './shared/arrow'
 import { EmblaCarouselType } from 'embla-carousel'
-import { ProductSlide } from '@/components/product-slide'
 import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
+import { ComboProductSlide } from './combo-product-slide'
 
 export const ComboProducts = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
@@ -39,27 +39,28 @@ export const ComboProducts = () => {
           title="Your Personalized Coffee"
           subtitle="COMBO PHIN PHÊ"
         />
-        {/* <div className="relative z-[2]" ref={emblaRef}>
+        <div className="relative z-[2]" ref={emblaRef}>
           <div className="flex">
-            <ProductSlide transparent={nextBtnDisabled} />
-            <ProductSlide />
-            <ProductSlide transparent={prevBtnDisabled} />
+            <ComboProductSlide transparent={nextBtnDisabled} />
+            <ComboProductSlide />
+            <ComboProductSlide />
+            <ComboProductSlide transparent={prevBtnDisabled} />
           </div>
           <Button
-            className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 -left-5 absolute -translate-y-1/2 rotate-180`}
+            className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1260px]:left-0 -left-10 absolute max-xs:top-[40%] max-xs:-translate-y-[60%] -translate-y-1/2 rotate-180`}
             intent="icon"
             onClick={scrollPrev}
           >
             <Arrow />
           </Button>
           <Button
-            className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} -right-5 max-[1220px]:right-0 absolute  -translate-y-1/2`}
+            className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} -right-10 max-[1260px]:right-0 absolute max-xs:top-[40%] max-xs:-translate-y-[60%] -translate-y-1/2`}
             intent="icon"
             onClick={scrollNext}
           >
             <Arrow />
           </Button>
-        </div> */}
+        </div>
       </div>
     </div>
   )

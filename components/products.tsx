@@ -42,14 +42,14 @@ export const Products = () => {
           <ProductSlide transparent={prevBtnDisabled} />
         </div>
         <Button
-          className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 -left-5 absolute -translate-y-1/2 rotate-180`}
+          className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 max-xs:top-[35%] max-xs:-translate-y-[65%] -left-5 absolute -translate-y-1/2 rotate-180`}
           intent="icon"
           onClick={scrollPrev}
         >
           <Arrow />
         </Button>
         <Button
-          className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} -right-5 max-[1220px]:right-0 absolute  -translate-y-1/2`}
+          className={`top-1/2 ${nextBtnDisabled ? 'opacity-0' : 'opacity-100'} -right-5 max-[1220px]:right-0 absolute max-xs:top-[35%] max-xs:-translate-y-[65%] -translate-y-1/2`}
           intent="icon"
           onClick={scrollNext}
         >
