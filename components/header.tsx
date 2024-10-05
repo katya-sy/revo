@@ -2,9 +2,23 @@
 import Image from 'next/image'
 import { Cart } from './shared/cart'
 import { useState } from 'react'
+import * as motion from 'framer-motion/client'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
+
+  const animateTitle = {
+    hidden: { opacity: 0 },
+    show: {
+      x: [-200, 0],
+      opacity: [0, 100],
+      transition: {
+        bounce: 0.2,
+        duration: 0.5,
+        staggerChildren: 0.3,
+      },
+    },
+  }
 
   return (
     <>
@@ -23,13 +37,21 @@ export const Header = () => {
             alt="Logo"
             className="min-w-max"
           />
-          <h1 className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight">
-            <span>Your</span>
-            <span className="relative after:top-0 max-sm:after:-right-2 after:-right-4 after:bottom-0 max-sm:after:-left-2 after:-left-4 z-[2] after:-z-[2] after:absolute flex justify-center items-center after:bg-beige max-sm:w-max text-grey">
+          <motion.h1
+            whileInView="show"
+            initial="hidden"
+            variants={animateTitle}
+            className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight"
+          >
+            <motion.span variants={animateTitle}>Your</motion.span>
+            <motion.span
+              variants={animateTitle}
+              className="relative after:top-0 max-sm:after:-right-2 after:-right-4 after:bottom-0 max-sm:after:-left-2 after:-left-4 z-[2] after:-z-[2] after:absolute flex justify-center items-center after:bg-beige max-sm:w-max text-grey"
+            >
               personalized
-            </span>
-            <span>coffee</span>
-          </h1>
+            </motion.span>
+            <motion.span variants={animateTitle}>coffee</motion.span>
+          </motion.h1>
         </div>
         <div className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
