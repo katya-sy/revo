@@ -8,6 +8,7 @@ import { useMenuAnimation } from '@/utils/use-menu-animation'
 export const Header = () => {
   const [open, setOpen] = useState(false)
   const scope = useMenuAnimation(open)
+  const isMobile = window.innerWidth < 768
 
   useEffect(() => {
     const body = document.querySelector('body')
@@ -33,7 +34,7 @@ export const Header = () => {
     <>
       <div
         ref={scope}
-        className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-16px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container"
+        className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-17px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container"
       >
         <motion.div
           onClick={() => setOpen(false)}
@@ -81,8 +82,10 @@ export const Header = () => {
           <Cart />
         </button>
         <motion.div
-          initial={{ clipPath: 'inset(0% 0% 0% 100%)' }}
-          className="max-md:right-0 max-md:z-[3] max-md:absolute flex flex-col flex-shrink-0 gap-28 max-md:gap-16 bg-blue max-md:px-14 py-16 max-md:py-10 pr-6 pl-14 max-lg:pl-8 max-md:h-full menu"
+          initial={{
+            clipPath: isMobile ? 'inset(0% 0% 0% 100%)' : 'inset(0% 0% 0% 0%)',
+          }}
+          className="max-md:right-0 max-md:z-[3] max-md:absolute flex flex-col flex-shrink-0 gap-28 max-md:gap-16 bg-blue max-md:px-14 py-16 max-md:py-10 md:[clip-path:inset(0%_0%_0%_0%)] pr-6 pl-14 max-lg:pl-8 max-md:h-full menu"
         >
           <button className="relative w-max text-grey animate-button">
             <div className="hover:text-beige transition-colors">
