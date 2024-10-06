@@ -1,13 +1,20 @@
 'use client'
 import Image from 'next/image'
 import { Cart } from './shared/cart'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
   const scope = useMenuAnimation(open)
+
+  useEffect(() => {
+    const body = document.querySelector('body')
+    if (body) {
+      body.style.overflowY = open ? 'hidden' : 'auto'
+    }
+  }, [open])
 
   const animateTitle = {
     hidden: { opacity: 0 },
