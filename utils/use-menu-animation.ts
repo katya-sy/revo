@@ -19,6 +19,18 @@ export const useMenuAnimation = (isOpen: boolean) => {
         },
       )
 
+      animate(
+        '.overlay',
+        {
+          opacity: isOpen ? 1 : 0,
+        },
+        {
+          type: 'spring',
+          bounce: 0,
+          duration: 0.5,
+        },
+      )
+
       animate('nav', isOpen ? { opacity: 1 } : { opacity: 0 }, {
         type: 'spring',
         duration: 0.5,

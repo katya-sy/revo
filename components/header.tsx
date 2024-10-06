@@ -39,7 +39,7 @@ export const Header = () => {
           onClick={() => setOpen(false)}
           className={`${
             open ? 'absolute md:hidden inset-0 z-[3] bg-black/60' : 'hidden'
-          } md:hidden`}
+          } md:hidden overlay`}
         />
         <div className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
           <Image
@@ -80,12 +80,9 @@ export const Header = () => {
         >
           <Cart />
         </button>
-        <div
-          className={`${
-            open
-              ? 'max-md:right-0 max-md:flex'
-              : 'max-md:-right-full max-md:hidden'
-          } max-md:absolute flex flex-col flex-shrink-0 gap-28 bg-blue py-16 pr-6 pl-14 max-lg:pl-8 max-md:px-14 max-md:gap-16 max-md:py-10 max-md:h-full max-md:z-[3] menu`}
+        <motion.div
+          initial={{ clipPath: 'inset(0% 0% 0% 100%)' }}
+          className="max-md:right-0 max-md:z-[3] max-md:absolute flex flex-col flex-shrink-0 gap-28 max-md:gap-16 bg-blue max-md:px-14 py-16 max-md:py-10 pr-6 pl-14 max-lg:pl-8 max-md:h-full menu"
         >
           <button className="relative w-max text-grey animate-button">
             <div className="hover:text-beige transition-colors">
@@ -105,7 +102,7 @@ export const Header = () => {
               <li>Lien He</li>
             </ul>
           </nav>
-        </div>
+        </motion.div>
       </div>
     </>
   )
