@@ -1,3 +1,7 @@
+'use client'
+import { animateBlockTitle } from '@/utils/animate-config'
+import * as motion from 'framer-motion/client'
+
 interface BlockTitleProps {
   title: string
   subtitle: string
@@ -5,11 +9,21 @@ interface BlockTitleProps {
 
 export const BlockTitle = ({ title, subtitle }: BlockTitleProps) => {
   return (
-    <div className="flex flex-col items-center gap-2 text-blue">
-      <h2 className="font-bold text-xl">{title}</h2>
-      <h3 className="font-black font-montserrat text-3xl text-center uppercase">
+    <motion.div
+      whileInView="show"
+      initial="hidden"
+      variants={animateBlockTitle}
+      className="flex flex-col items-center gap-2 text-blue"
+    >
+      <motion.h2 variants={animateBlockTitle} className="font-bold text-xl">
+        {title}
+      </motion.h2>
+      <motion.h3
+        variants={animateBlockTitle}
+        className="font-black font-montserrat text-3xl text-center uppercase"
+      >
         {subtitle}
-      </h3>
-    </div>
+      </motion.h3>
+    </motion.div>
   )
 }

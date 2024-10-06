@@ -4,6 +4,7 @@ import { Cart } from './shared/cart'
 import { useEffect, useState } from 'react'
 import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
+import { animateTitle } from '@/utils/animate-config'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
@@ -16,19 +17,6 @@ export const Header = () => {
       body.style.overflowY = open ? 'hidden' : 'auto'
     }
   }, [open])
-
-  const animateTitle = {
-    hidden: { opacity: 0 },
-    show: {
-      x: [-200, 0],
-      opacity: [0, 100],
-      transition: {
-        bounce: 0.2,
-        duration: 0.5,
-        staggerChildren: 0.3,
-      },
-    },
-  }
 
   return (
     <>

@@ -1,5 +1,8 @@
+'use client'
 import Image from 'next/image'
 import { Button } from './ui/button'
+import * as motion from 'framer-motion/client'
+import { animateCard } from '@/utils/animate-config'
 
 interface ProductCardProps {
   imgUrl: string
@@ -15,7 +18,12 @@ export const ProductCard = ({
   description,
 }: ProductCardProps) => {
   return (
-    <div className="flex max-sm:flex-col hover:shadow-product-card-shadow transition-shadow">
+    <motion.div
+      whileInView="show"
+      initial="hidden"
+      variants={animateCard}
+      className="flex max-sm:flex-col hover:shadow-product-card-shadow transition-shadow"
+    >
       <div className="bg-grey w-max max-[535px]:w-full max-[535px]:overflow-hidden">
         <Image src={imgUrl} width={235} height={256} alt="product" />
       </div>
@@ -32,6 +40,6 @@ export const ProductCard = ({
           <Button intent="secondary">CHI TIẾT</Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
