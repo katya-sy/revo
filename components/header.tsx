@@ -3,9 +3,11 @@ import Image from 'next/image'
 import { Cart } from './shared/cart'
 import { useState } from 'react'
 import * as motion from 'framer-motion/client'
+import { useMenuAnimation } from '@/utils/use-menu-animation'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
+  const scope = useMenuAnimation(open)
 
   const animateTitle = {
     hidden: { opacity: 0 },
@@ -22,8 +24,11 @@ export const Header = () => {
 
   return (
     <>
-      <div className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-16px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container">
-        <div
+      <div
+        ref={scope}
+        className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-16px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container"
+      >
+        <motion.div
           onClick={() => setOpen(false)}
           className={`${
             open ? 'absolute md:hidden inset-0 z-[3] bg-black/60' : 'hidden'
@@ -73,9 +78,9 @@ export const Header = () => {
             open
               ? 'max-md:right-0 max-md:flex'
               : 'max-md:-right-full max-md:hidden'
-          } max-md:absolute flex flex-col flex-shrink-0 gap-28 bg-blue py-16 pr-6 pl-14 max-lg:pl-8 max-md:px-14 max-md:gap-16 max-md:py-10 max-md:h-full max-md:z-[3]`}
+          } max-md:absolute flex flex-col flex-shrink-0 gap-28 bg-blue py-16 pr-6 pl-14 max-lg:pl-8 max-md:px-14 max-md:gap-16 max-md:py-10 max-md:h-full max-md:z-[3] menu`}
         >
-          <button className="relative w-max text-grey">
+          <button className="relative w-max text-grey animate-button">
             <div className="hover:text-beige transition-colors">
               <Cart />
             </div>
