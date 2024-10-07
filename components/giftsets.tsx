@@ -68,7 +68,10 @@ export const Giftsets = () => {
   ]
 
   return (
-    <div className="relative before:top-0 before:bottom-0 md:before:left-[80%] before:left-[90%] before:absolute max-sm:before:hidden bg-grey before:bg-beige-light py-24 md:before:w-[calc(100vw-80%)] before:w-[calc(100vw-90%)]">
+    <div
+      id="giftset"
+      className="relative before:top-0 before:bottom-0 md:before:left-[80%] before:left-[90%] before:absolute max-sm:before:hidden bg-grey before:bg-beige-light py-24 md:before:w-[calc(100vw-80%)] before:w-[calc(100vw-90%)]"
+    >
       <div className="flex flex-col gap-16 container">
         <BlockTitle title="Best Gift For Best Friend" subtitle="GIFTSET" />
         <Tabs.Root

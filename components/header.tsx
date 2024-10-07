@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
 import { animateTitle } from '@/utils/animate-config'
+import Link from 'next/link'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
@@ -86,11 +87,21 @@ export const Header = () => {
           <nav>
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">
               <li className="font-bold">Trang Chu</li>
-              <li>Coffee</li>
-              <li>Phin Ma Mau</li>
-              <li>Combo Phin Phe</li>
-              <li>Giftset</li>
-              <li>Lien He</li>
+              <li className="hover:text-beige transition-colors">
+                <Link href="#products">Coffee</Link>
+              </li>
+              <li className="hover:text-beige transition-colors">
+                <Link href="">Phin Ma Mau</Link>
+              </li>
+              <li className="hover:text-beige transition-colors">
+                <Link href="#combo">Combo Phin Phe</Link>
+              </li>
+              <li className="hover:text-beige transition-colors">
+                <Link href="#giftset">Giftset</Link>
+              </li>
+              <li className="hover:text-beige transition-colors">
+                <Link href="">Lien He</Link>
+              </li>
             </ul>
           </nav>
         </motion.div>
