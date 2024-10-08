@@ -12,8 +12,8 @@ export const ComboProductSlide = ({ transparent }: ProductSlideProps) => {
       <ComboProductCard
         imgUrl="/combo-1.png"
         title="Combo Revo Đậm Đà"
-        price={147000}
-        discountPrice={155000}
+        price={155000}
+        discountPrice={147000}
         description="Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
       />
     </div>
