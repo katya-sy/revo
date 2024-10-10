@@ -7,10 +7,40 @@ import { ProductSlide } from '@/components/product-slide'
 import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
 
+async function getData() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL
+  if (apiUrl) {
+    const res = await fetch(apiUrl + '/products', {
+      next: {
+        revalidate: false,
+        tags: ['products'],
+      },
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch data')
+    }
+    return res.json()
+  }
+}
+
 export const Products = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData()
+        console.log(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
