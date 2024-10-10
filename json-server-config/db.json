@@ -6,6 +6,41 @@
       "title": "REVO Morning",
       "price": 99000,
       "description": "đắng, hậu ngọt, hương hoa"
+    },
+    {
+      "id": 2,
+      "imgUrl": "/product-1.png",
+      "title": "REVO Morning",
+      "price": 99000,
+      "description": "đắng, hậu ngọt, hương hoa"
+    },
+    {
+      "id": 3,
+      "imgUrl": "/product-1.png",
+      "title": "REVO Morning",
+      "price": 99000,
+      "description": "đắng, hậu ngọt, hương hoa"
+    },
+    {
+      "id": 4,
+      "imgUrl": "/product-1.png",
+      "title": "REVO Morning",
+      "price": 99000,
+      "description": "đắng, hậu ngọt, hương hoa"
+    },
+    {
+      "id": 5,
+      "imgUrl": "/product-1.png",
+      "title": "REVO Morning",
+      "price": 99000,
+      "description": "đắng, hậu ngọt, hương hoa"
+    },
+    {
+      "id": 6,
+      "imgUrl": "/product-1.png",
+      "title": "REVO Morning",
+      "price": 99000,
+      "description": "đắng, hậu ngọt, hương hoa"
     }
   ],
   "giftsets": [

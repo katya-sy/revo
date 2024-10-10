@@ -1,12 +1,12 @@
-import { create, router as _router, defaults, bodyParser } from 'json-server'
-import { resolve } from 'path'
+const jsonServer = require('json-server')
+const path = require('path')
 
-const index = create()
+const index = jsonServer.create()
 
-const router = _router(resolve(__dirname, 'db.json'))
+const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 
-index.use(defaults({}))
-index.use(bodyParser)
+index.use(jsonServer.defaults({}))
+index.use(jsonServer.bodyParser)
 
 index.use(router)
 

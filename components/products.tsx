@@ -28,12 +28,19 @@ export const Products = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+  const [products, setProducts] = useState([])
+  const slides = []
+
+  for (let i = 0; i < products.length; i += 2) {
+    const items = products.slice(i, i + 2)
+    slides.push(items)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getData()
-        console.log(data)
+        setProducts(data)
       } catch (err) {
         console.log(err)
       }
@@ -70,9 +77,19 @@ export const Products = () => {
       <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
       <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex">
-          <ProductSlide transparent={nextBtnDisabled} />
-          <ProductSlide />
-          <ProductSlide transparent={prevBtnDisabled} />
+          {slides.map((slide, index) => (
+            <ProductSlide
+              key={index}
+              items={slide}
+              transparent={
+                index === 0
+                  ? nextBtnDisabled
+                  : index === slides.length - 1
+                    ? prevBtnDisabled
+                    : undefined
+              }
+            />
+          ))}
         </div>
         <Button
           className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 max-xs:top-[35%] max-xs:-translate-y-[65%] -left-5 absolute -translate-y-1/2 rotate-180`}
