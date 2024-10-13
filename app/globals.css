@@ -46,6 +46,7 @@
 
 * {
   scroll-behavior: smooth;
+  @apply focus-within:outline-beige;
 }
 
 @media (prefers-color-scheme: dark) {
