@@ -1,6 +1,9 @@
 import { ProductCard } from '../product-card'
 import { Edit } from '../shared/edit'
 import { Button } from '../ui/button'
+import { Root, Trigger } from '@radix-ui/react-dialog'
+import { CustomDialogPortal } from '../ui/custom-dialog-portal'
+import * as Form from '@radix-ui/react-form'
 
 async function getData() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
@@ -36,9 +39,34 @@ export const AdminProductList = async () => {
               price={product.price}
               description={product.description}
             />
-            <Button className="top-2 right-2 absolute" intent="icon">
-              <Edit />
-            </Button>
+            <Root>
+              <Trigger asChild>
+                <Button className="top-2 right-2 absolute" intent="icon">
+                  <Edit />
+                </Button>
+              </Trigger>
+              <CustomDialogPortal>
+                {/* <Form.Root className="FormRoot">
+                  <Form.Field className="FormField" name="title">
+                    <div>
+                      <Form.Label className="FormLabel">Title</Form.Label>
+                      <Form.Message
+                        className="FormMessage"
+                        match="valueMissing"
+                      >
+                        Please enter product title
+                      </Form.Message>
+                    </div>
+                    <Form.Control asChild>
+                      <input maxLength={25} required />
+                    </Form.Control>
+                  </Form.Field>
+                  <Form.Submit asChild>
+                    <button className="Button">Post question</button>
+                  </Form.Submit>
+                </Form.Root> */}
+              </CustomDialogPortal>
+            </Root>
           </div>
         ))}
       </div>
