@@ -17,7 +17,15 @@ export const Header = () => {
     if (body) {
       body.style.overflowY = open ? 'hidden' : 'auto'
     }
+
+    return () => {
+      if (body) {
+        body.style.overflowY = 'auto'
+      }
+    }
   }, [open])
+
+  const handleLinkClick = () => setOpen(false)
 
   return (
     <>
@@ -88,19 +96,29 @@ export const Header = () => {
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">
               <li className="font-bold">Trang Chu</li>
               <li className="hover:text-beige transition-colors">
-                <Link href="#products">Coffee</Link>
+                <Link onClick={handleLinkClick} href="#products">
+                  Coffee
+                </Link>
               </li>
               <li className="hover:text-beige transition-colors">
-                <Link href="">Phin Ma Mau</Link>
+                <Link onClick={handleLinkClick} href="">
+                  Phin Ma Mau
+                </Link>
               </li>
               <li className="hover:text-beige transition-colors">
-                <Link href="#combo">Combo Phin Phe</Link>
+                <Link onClick={handleLinkClick} href="#combo">
+                  Combo Phin Phe
+                </Link>
               </li>
               <li className="hover:text-beige transition-colors">
-                <Link href="#giftset">Giftset</Link>
+                <Link onClick={handleLinkClick} href="#giftset">
+                  Giftset
+                </Link>
               </li>
               <li className="hover:text-beige transition-colors">
-                <Link href="">Lien He</Link>
+                <Link onClick={handleLinkClick} href="/admin">
+                  Admin
+                </Link>
               </li>
             </ul>
           </nav>

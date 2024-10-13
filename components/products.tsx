@@ -72,7 +72,7 @@ export const Products = () => {
   return (
     <div
       id="products"
-      className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container"
+      className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-sm:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container"
     >
       <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
       <div className="relative z-[2]" ref={emblaRef}>
