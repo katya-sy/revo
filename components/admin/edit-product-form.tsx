@@ -3,11 +3,49 @@ import * as Form from '@radix-ui/react-form'
 import { FormField } from '../ui/form-field'
 import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
+import { useState } from 'react'
 
 export const EditProductForm = ({ product }: any) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    title: product.title,
+    description: product.description,
+    price: product.price,
+  })
+
+  async function updateProduct(data) {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (apiUrl) {
+      const res = await fetch(`${apiUrl}/products/${product.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          title: data.title,
+          description: data.description,
+          price: data.price,
+        }),
+        next: {
+          revalidate: false,
+          tags: ['products'],
+        },
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      return res.json()
+    }
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData((prevData) => ({ ...prevData, [name]: value }))
+    console.log(name, value)
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(e)
+    console.log(formData)
+    const res = await updateProduct(formData)
+    console.log(res)
   }
 
   return (
@@ -21,7 +59,8 @@ export const EditProductForm = ({ product }: any) => {
           inputProps={{
             required: true,
             maxLength: 20,
-            defaultValue: product.title,
+            onChange: handleInputChange,
+            value: formData.title,
           }}
         />
         <FormField
@@ -29,7 +68,8 @@ export const EditProductForm = ({ product }: any) => {
           inputProps={{
             required: true,
             maxLength: 45,
-            defaultValue: product.description,
+            onChange: handleInputChange,
+            value: formData.description,
           }}
         />
         <FormField
@@ -37,7 +77,8 @@ export const EditProductForm = ({ product }: any) => {
           inputProps={{
             required: true,
             type: 'number',
-            defaultValue: product.price,
+            onChange: handleInputChange,
+            value: formData.price,
           }}
         />
       </div>

@@ -14,7 +14,7 @@ export const CustomDialogPortal = ({ children }: CustomDialogPortalProps) => {
         {children}
         <Dialog.Close
           asChild
-          className="top-4 right-4 absolute text-grey hover:text-beige"
+          className="top-4 right-4 absolute text-grey hover:text-beige cursor-pointer"
         >
           <Close />
         </Dialog.Close>
