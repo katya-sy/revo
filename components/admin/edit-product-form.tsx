@@ -22,6 +22,9 @@ export const EditProductForm = ({ product }: any) => {
           description: data.description,
           price: data.price,
         }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
         next: {
           revalidate: false,
           tags: ['products'],

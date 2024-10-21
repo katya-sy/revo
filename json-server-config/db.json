@@ -3,14 +3,14 @@
     {
       "id": 1,
       "imgUrl": "/product-1.png",
-      "title": "REVO Morning",
-      "price": 99000,
-      "description": "đắng, hậu ngọt, hương hoa"
+      "title": "REVO Good",
+      "price": "50000",
+      "description": "test test test test"
     },
     {
       "id": 2,
       "imgUrl": "/product-1.png",
-      "title": "REVO Morning",
+      "title": "REVO Revo",
       "price": 99000,
       "description": "đắng, hậu ngọt, hương hoa"
     },
