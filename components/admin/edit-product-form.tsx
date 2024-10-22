@@ -4,9 +4,10 @@ import { FormField } from '../ui/form-field'
 import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
+import { Product } from '@/types/produst'
 
 interface EditProductFormProps {
-  product: any
+  product: Product
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
@@ -17,7 +18,11 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
     price: product.price,
   })
 
-  async function updateProduct(data) {
+  async function updateProduct(data: {
+    title: string
+    description: string
+    price: number
+  }) {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
       const res = await fetch(`${apiUrl}/products/${product.id}`, {

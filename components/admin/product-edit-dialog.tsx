@@ -5,8 +5,13 @@ import { EditProductForm } from './edit-product-form'
 import { Button } from '../ui/button'
 import { Edit } from '../shared/edit'
 import { useState } from 'react'
+import { Product } from '@/types/produst'
 
-export const ProductEditDialog = ({ product }: any) => {
+interface ProductEditDialogProps {
+  product: Product
+}
+
+export const ProductEditDialog = ({ product }: ProductEditDialogProps) => {
   const [open, setOpen] = useState(false)
 
   return (

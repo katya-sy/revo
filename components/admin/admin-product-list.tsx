@@ -1,6 +1,5 @@
+import { Product } from '@/types/produst'
 import { ProductCard } from '../product-card'
-import { Edit } from '../shared/edit'
-import { Button } from '../ui/button'
 import { ProductEditDialog } from './product-edit-dialog'
 
 async function getData() {
@@ -21,7 +20,7 @@ async function getData() {
 }
 
 export const AdminProductList = async () => {
-  const products = await getData()
+  const products = (await getData()) as Product[]
 
   return (
     <div className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-sm:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container">
@@ -31,12 +30,7 @@ export const AdminProductList = async () => {
       <div className="gap-8 grid grid-cols-2 max-[1130px]:grid-cols-1 max-sm:grid-cols-2 max-xs:grid-cols-1">
         {products.map((product) => (
           <div className="relative" key={product.id}>
-            <ProductCard
-              imgUrl={product.imgUrl}
-              title={product.title}
-              price={product.price}
-              description={product.description}
-            />
+            <ProductCard product={product} />
             <ProductEditDialog product={product} />
           </div>
         ))}
