@@ -1,9 +1,7 @@
 import { ProductCard } from '../product-card'
 import { Edit } from '../shared/edit'
 import { Button } from '../ui/button'
-import * as Dialog from '@radix-ui/react-dialog'
-import { CustomDialogPortal } from '../ui/custom-dialog-portal'
-import { EditProductForm } from './edit-product-form'
+import { ProductEditDialog } from './product-edit-dialog'
 
 async function getData() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
@@ -39,16 +37,7 @@ export const AdminProductList = async () => {
               price={product.price}
               description={product.description}
             />
-            <Dialog.Root>
-              <Dialog.Trigger asChild>
-                <Button className="top-2 right-2 absolute" intent="icon">
-                  <Edit />
-                </Button>
-              </Dialog.Trigger>
-              <CustomDialogPortal>
-                <EditProductForm product={product} />
-              </CustomDialogPortal>
-            </Dialog.Root>
+            <ProductEditDialog product={product} />
           </div>
         ))}
       </div>

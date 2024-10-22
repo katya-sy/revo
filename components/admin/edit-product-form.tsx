@@ -5,7 +5,12 @@ import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
 
-export const EditProductForm = ({ product }: any) => {
+interface EditProductFormProps {
+  product: any
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
   const [formData, setFormData] = useState({
     title: product.title,
     description: product.description,
@@ -46,9 +51,12 @@ export const EditProductForm = ({ product }: any) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData)
-    const res = await updateProduct(formData)
-    console.log(res)
+    try {
+      await updateProduct(formData)
+      setOpen(false)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
