@@ -8,19 +8,23 @@ import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
 
 async function getData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL
-  if (apiUrl) {
-    const res = await fetch(apiUrl + '/products', {
-      next: {
-        revalidate: false,
-        tags: ['products'],
-      },
-    })
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (apiUrl) {
+      const res = await fetch(apiUrl + '/products', {
+        next: {
+          revalidate: false,
+          tags: ['products'],
+        },
+      })
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
+      if (!res.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      return res.json()
     }
-    return res.json()
+  } catch (error) {
+    console.error(error)
   }
 }
 
@@ -31,7 +35,7 @@ export const Products = () => {
   const [products, setProducts] = useState([])
   const slides = []
 
-  for (let i = 0; i < products.length; i += 2) {
+  for (let i = 0; i < products?.length; i += 2) {
     const items = products.slice(i, i + 2)
     slides.push(items)
   }

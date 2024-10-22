@@ -3,19 +3,23 @@ import { ProductCard } from '../product-card'
 import { ProductEditDialog } from './product-edit-dialog'
 
 async function getData() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL
-  if (apiUrl) {
-    const res = await fetch(apiUrl + '/products', {
-      next: {
-        revalidate: false,
-        tags: ['products'],
-      },
-    })
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (apiUrl) {
+      const res = await fetch(apiUrl + '/products', {
+        next: {
+          revalidate: false,
+          tags: ['products'],
+        },
+      })
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
+      if (!res.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      return res.json()
     }
-    return res.json()
+  } catch (error) {
+    console.error(error)
   }
 }
 
@@ -28,12 +32,13 @@ export const AdminProductList = async () => {
         Edit product cards
       </h3>
       <div className="gap-8 grid grid-cols-2 max-[1130px]:grid-cols-1 max-sm:grid-cols-2 max-xs:grid-cols-1">
-        {products.map((product) => (
-          <div className="relative" key={product.id}>
-            <ProductCard product={product} />
-            <ProductEditDialog product={product} />
-          </div>
-        ))}
+        {products &&
+          products.map((product) => (
+            <div className="relative" key={product.id}>
+              <ProductCard product={product} />
+              <ProductEditDialog product={product} />
+            </div>
+          ))}
       </div>
     </div>
   )

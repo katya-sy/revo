@@ -23,28 +23,32 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
     description: string
     price: number
   }) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    if (apiUrl) {
-      const res = await fetch(`${apiUrl}/products/${product.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          title: data.title,
-          description: data.description,
-          price: data.price,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        next: {
-          revalidate: false,
-          tags: ['products'],
-        },
-      })
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL
+      if (apiUrl) {
+        const res = await fetch(`${apiUrl}/products/${product.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({
+            title: data.title,
+            description: data.description,
+            price: data.price,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          next: {
+            revalidate: false,
+            tags: ['products'],
+          },
+        })
 
-      if (!res.ok) {
-        throw new Error('Failed to fetch data')
+        if (!res.ok) {
+          throw new Error('Failed to patch data')
+        }
+        return res.json()
       }
-      return res.json()
+    } catch (error) {
+      console.error(error)
     }
   }
 
