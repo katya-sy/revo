@@ -6,21 +6,12 @@ import { CharacteristicIcons } from '../shared/characteristic-icons'
 import * as motion from 'framer-motion/client'
 import { AnimatePresence } from 'framer-motion'
 import { animateTab } from '@/utils/animate-config'
+import { Giftset } from '@/types/gifset'
 
 interface TabContentProps {
   value: string
   activeValue: string
-  content: {
-    imgUrl: string
-    title: string
-    price: number
-    description: string
-    characteristics: {
-      iconName: string
-      title: string
-      desc: string
-    }[]
-  }
+  content: Giftset
 }
 
 export const TabContent = ({

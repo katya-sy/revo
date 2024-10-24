@@ -1,4 +1,4 @@
-import { Product } from '@/types/produst'
+import { Product } from '@/types/product'
 import { ProductCard } from '../product-card'
 import { ProductEditDialog } from './product-edit-dialog'
 

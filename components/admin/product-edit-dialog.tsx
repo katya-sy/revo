@@ -5,7 +5,7 @@ import { EditProductForm } from './edit-product-form'
 import { Button } from '../ui/button'
 import { Edit } from '../shared/edit'
 import { useState } from 'react'
-import { Product } from '@/types/produst'
+import { Product } from '@/types/product'
 
 interface ProductEditDialogProps {
   product: Product

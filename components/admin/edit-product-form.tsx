@@ -4,7 +4,7 @@ import { FormField } from '../ui/form-field'
 import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
-import { Product } from '@/types/produst'
+import { Product } from '@/types/product'
 
 interface EditProductFormProps {
   product: Product

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Button } from './ui/button'
 import * as motion from 'framer-motion/client'
 import { animateCard } from '@/utils/animate-config'
-import { Product } from '@/types/produst'
+import { Product } from '@/types/product'
 
 interface ProductCardProps {
   product: Product

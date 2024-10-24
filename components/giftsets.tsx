@@ -9,6 +9,7 @@ export const Giftsets = () => {
   const [value, setValue] = useState('tab0')
   const tabContent = [
     {
+      id: 1,
       imgUrl: '/giftset-1.png',
       title: 'Giftset "Cà phê phin Việt Nam"',
       price: 285000,
@@ -28,6 +29,7 @@ export const Giftsets = () => {
       ],
     },
     {
+      id: 2,
       imgUrl: '/giftset-1.png',
       title: 'weg',
       price: 285000,
@@ -47,6 +49,7 @@ export const Giftsets = () => {
       ],
     },
     {
+      id: 3,
       imgUrl: '/giftset-1.png',
       title: 'sfdgfh',
       price: 285000,

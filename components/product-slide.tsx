@@ -1,5 +1,5 @@
 import { ProductCard } from '@/components/product-card'
-import { Product } from '@/types/produst'
+import { Product } from '@/types/product'
 
 interface ProductSlideProps {
   transparent?: boolean
