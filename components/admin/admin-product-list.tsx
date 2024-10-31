@@ -1,30 +1,19 @@
+'use client'
 import { Product } from '@/types/product'
 import { ProductCard } from '../product-card'
 import { ProductEditDialog } from './product-edit-dialog'
+import { useProductStore } from '@/store/product-store'
+import { useEffect } from 'react'
 
-async function getData() {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    if (apiUrl) {
-      const res = await fetch(apiUrl + '/products', {
-        next: {
-          revalidate: false,
-          tags: ['products'],
-        },
-      })
-
-      if (!res.ok) {
-        throw new Error('Failed to fetch data')
-      }
-      return res.json()
-    }
-  } catch (error) {
-    console.error(error)
-  }
+interface AdminProductListProps {
+  data: Product[]
 }
 
-export const AdminProductList = async () => {
-  const products = (await getData()) as Product[]
+export const AdminProductList = ({ data }: AdminProductListProps) => {
+  const products = useProductStore((state) => state.products)
+  const setProducts = useProductStore((state) => state.setProducts)
+
+  useEffect(() => setProducts(data), [data])
 
   return (
     <div className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-sm:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container">

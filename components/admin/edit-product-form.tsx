@@ -5,6 +5,7 @@ import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
 import { Product } from '@/types/product'
+import { useProductStore } from '@/store/product-store'
 
 interface EditProductFormProps {
   product: Product
@@ -12,6 +13,8 @@ interface EditProductFormProps {
 }
 
 export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
+  const products = useProductStore((state) => state.products)
+  const setProducts = useProductStore((state) => state.setProducts)
   const [formData, setFormData] = useState({
     title: product.title,
     description: product.description,
@@ -61,7 +64,12 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      await updateProduct(formData)
+      const updatedProduct = await updateProduct(formData)
+      setProducts(
+        products.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product,
+        ),
+      )
       setOpen(false)
     } catch (error) {
       console.error(error)
