@@ -6,52 +6,29 @@ import { EmblaCarouselType } from 'embla-carousel'
 import { ProductSlide } from '@/components/product-slide'
 import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
+import { useProductStore } from '@/store/product-store'
+import { Product } from '@/types/product'
 
-async function getData() {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
-    if (apiUrl) {
-      const res = await fetch(apiUrl + '/products', {
-        next: {
-          revalidate: false,
-          tags: ['products'],
-        },
-      })
-
-      if (!res.ok) {
-        throw new Error('Failed to fetch data')
-      }
-      return res.json()
-    }
-  } catch (error) {
-    console.error(error)
-  }
+interface ProductsProps {
+  data: Product[]
 }
 
-export const Products = () => {
+export const Products = ({ data }: ProductsProps) => {
+  const products = useProductStore((state) => state.products)
+  const setProducts = useProductStore((state) => state.setProducts)
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
-  const [products, setProducts] = useState([])
-  const slides = []
+  const [slides, setSlides] = useState<Product[][]>([])
 
-  for (let i = 0; i < products?.length; i += 2) {
-    const items = products.slice(i, i + 2)
-    slides.push(items)
-  }
+  useEffect(() => setProducts(data), [data])
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getData()
-        setProducts(data)
-      } catch (err) {
-        console.log(err)
-      }
+    for (let i = 0; i < products?.length; i += 2) {
+      const items = products.slice(i, i + 2)
+      setSlides((prevSlides) => [...prevSlides, items])
     }
-
-    fetchData()
-  }, [])
+  }, [products])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
