@@ -6,6 +6,7 @@ import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
 import { Product } from '@/types/product'
 import { useProductStore } from '@/store/product-store'
+import { updateProduct } from '@/utils/api'
 
 interface EditProductFormProps {
   product: Product
@@ -21,40 +22,6 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
     price: product.price,
   })
 
-  async function updateProduct(data: {
-    title: string
-    description: string
-    price: number
-  }) {
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL
-      if (apiUrl) {
-        const res = await fetch(`${apiUrl}/products/${product.id}`, {
-          method: 'PATCH',
-          body: JSON.stringify({
-            title: data.title,
-            description: data.description,
-            price: data.price,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          next: {
-            revalidate: false,
-            tags: ['products'],
-          },
-        })
-
-        if (!res.ok) {
-          throw new Error('Failed to patch data')
-        }
-        return res.json()
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prevData) => ({ ...prevData, [name]: value }))
@@ -64,7 +31,7 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const updatedProduct = await updateProduct(formData)
+      const updatedProduct = await updateProduct(product.id, formData)
       setProducts(
         products.map((product) =>
           product.id === updatedProduct.id ? updatedProduct : product,
