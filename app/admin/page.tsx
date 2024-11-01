@@ -1,9 +1,9 @@
 import { AdminProductList } from '@/components/admin/admin-product-list'
 import { Product } from '@/types/product'
-import { getData } from '@/utils/api'
+import { getProductData } from '@/utils/api'
 
 export default async function Admin() {
-  const products = (await getData()) as Product[]
+  const products = (await getProductData()) as Product[]
 
   return (
     <div className="bg-beige-light overflow-x-hidden">

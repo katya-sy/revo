@@ -1,4 +1,4 @@
-export async function getData() {
+export async function getProductData() {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
@@ -6,6 +6,27 @@ export async function getData() {
         next: {
           revalidate: false,
           tags: ['products'],
+        },
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      return res.json()
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export async function getComboProductData() {
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    if (apiUrl) {
+      const res = await fetch(apiUrl + '/combo', {
+        next: {
+          revalidate: false,
+          tags: ['combo'],
         },
       })
 

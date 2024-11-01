@@ -3,9 +3,9 @@
     {
       "id": 1,
       "imgUrl": "/product-1.png",
-      "title": "REVO Goodt dfdryhf",
-      "price": "20005",
-      "description": "test test test "
+      "title": "REVO Goodt dfdlkkgn",
+      "price": "200053",
+      "description": "test test test rgdfg"
     },
     {
       "id": 2,
@@ -67,6 +67,30 @@
   "combo": [
     {
       "id": 1,
+      "imgUrl": "/combo-1.png",
+      "title": "Combo Revo Đậm Đà",
+      "price": 147000,
+      "discountPrice": 147000,
+      "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+    },
+    {
+      "id": 2,
+      "imgUrl": "/combo-1.png",
+      "title": "Combo Revo Đậm Đà",
+      "price": 147000,
+      "discountPrice": 147000,
+      "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+    },
+    {
+      "id": 3,
+      "imgUrl": "/combo-1.png",
+      "title": "Combo Revo Đậm Đà",
+      "price": 147000,
+      "discountPrice": 147000,
+      "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+    },
+    {
+      "id": 4,
       "imgUrl": "/combo-1.png",
       "title": "Combo Revo Đậm Đà",
       "price": 147000,

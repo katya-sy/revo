@@ -6,11 +6,23 @@ import { EmblaCarouselType } from 'embla-carousel'
 import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
 import { ComboProductSlide } from './combo-product-slide'
+import { ComboProduct } from '@/types/combo-product'
+import { useComboProductStore } from '@/store/combo-product-store'
 
-export const ComboProducts = () => {
+interface ComboProductProps {
+  data: ComboProduct[]
+}
+
+export const ComboProducts = ({ data }: ComboProductProps) => {
+  const comboProducts = useComboProductStore((state) => state.comboProducts)
+  const setComboProducts = useComboProductStore(
+    (state) => state.setComboProducts,
+  )
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+
+  useEffect(() => setComboProducts(data), [data])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -44,10 +56,19 @@ export const ComboProducts = () => {
         />
         <div className="relative z-[2]" ref={emblaRef}>
           <div className="flex">
-            <ComboProductSlide transparent={nextBtnDisabled} />
-            <ComboProductSlide />
-            <ComboProductSlide />
-            <ComboProductSlide transparent={prevBtnDisabled} />
+            {comboProducts.map((combo, index) => (
+              <ComboProductSlide
+                key={index}
+                product={combo}
+                transparent={
+                  index === 0
+                    ? nextBtnDisabled
+                    : index === comboProducts.length - 1
+                      ? prevBtnDisabled
+                      : undefined
+                }
+              />
+            ))}
           </div>
           <Button
             className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1260px]:left-0 -left-10 absolute max-xs:top-[40%] max-xs:-translate-y-[60%] -translate-y-1/2 rotate-180`}
