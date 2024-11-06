@@ -56,19 +56,20 @@ export const ComboProducts = ({ data }: ComboProductProps) => {
         />
         <div className="relative z-[2]" ref={emblaRef}>
           <div className="flex">
-            {comboProducts.map((combo, index) => (
-              <ComboProductSlide
-                key={index}
-                product={combo}
-                transparent={
-                  index === 0
-                    ? nextBtnDisabled
-                    : index === comboProducts.length - 1
-                      ? prevBtnDisabled
-                      : undefined
-                }
-              />
-            ))}
+            {comboProducts &&
+              comboProducts.map((combo, index) => (
+                <ComboProductSlide
+                  key={index}
+                  product={combo}
+                  transparent={
+                    index === 0
+                      ? nextBtnDisabled
+                      : index === comboProducts.length - 1
+                        ? prevBtnDisabled
+                        : undefined
+                  }
+                />
+              ))}
           </div>
           <Button
             className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1260px]:left-0 -left-10 absolute max-xs:top-[40%] max-xs:-translate-y-[60%] -translate-y-1/2 rotate-180`}

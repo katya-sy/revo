@@ -58,19 +58,20 @@ export const Products = ({ data }: ProductsProps) => {
       <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
       <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex">
-          {slides.map((slide, index) => (
-            <ProductSlide
-              key={index}
-              items={slide}
-              transparent={
-                index === 0
-                  ? nextBtnDisabled
-                  : index === slides.length - 1
-                    ? prevBtnDisabled
-                    : undefined
-              }
-            />
-          ))}
+          {slides &&
+            slides.map((slide, index) => (
+              <ProductSlide
+                key={index}
+                items={slide}
+                transparent={
+                  index === 0
+                    ? nextBtnDisabled
+                    : index === slides.length - 1
+                      ? prevBtnDisabled
+                      : undefined
+                }
+              />
+            ))}
         </div>
         <Button
           className={`top-1/2 ${prevBtnDisabled ? 'opacity-0' : 'opacity-100'} max-[1220px]:left-0 max-xs:top-[35%] max-xs:-translate-y-[65%] -left-5 absolute -translate-y-1/2 rotate-180`}

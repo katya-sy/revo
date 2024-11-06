@@ -3,6 +3,7 @@ import { AdminProductList } from '@/components/admin/admin-product-list'
 import { ComboProduct } from '@/types/combo-product'
 import { Product } from '@/types/product'
 import { getComboProductData, getProductData } from '@/utils/api'
+import { Metadata } from 'next'
 
 export default async function Admin() {
   const products = (await getProductData()) as Product[]
