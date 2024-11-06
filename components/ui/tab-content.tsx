@@ -7,6 +7,7 @@ import * as motion from 'framer-motion/client'
 import { AnimatePresence } from 'framer-motion'
 import { animateTab } from '@/utils/animate-config'
 import { Giftset } from '@/types/gifset'
+import { formatPrice } from './../../utils/format-price'
 
 interface TabContentProps {
   value: string
@@ -53,7 +54,7 @@ export const TabContent = ({
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
                 <p className="font-semibold text-beige text-xl">
-                  {content.price}
+                  {formatPrice(content.price)}
                 </p>
                 <h4 className="font-bold text-blue-dark text-xl sm:text-2xl">
                   {content.title}

@@ -31,7 +31,10 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const updatedProduct = await updateProduct(product.id, formData)
+      const updatedProduct = await updateProduct(product.id, {
+        ...formData,
+        price: Number(formData.price),
+      })
       setProducts(
         products.map((product) =>
           product.id === updatedProduct.id ? updatedProduct : product,
