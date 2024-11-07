@@ -16,7 +16,7 @@ export const FormField = ({ fieldName, inputProps }: FormFieldProps) => {
           className="text-red-400 text-xs sm:text-sm"
           match="valueMissing"
         >
-          Please enter product {fieldName}
+          Please enter {fieldName}
         </Form.Message>
       </div>
       <Form.Control asChild>

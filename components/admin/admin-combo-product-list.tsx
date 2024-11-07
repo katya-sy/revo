@@ -3,7 +3,7 @@ import { useComboProductStore } from '@/store/combo-product-store'
 import { ComboProduct } from '@/types/combo-product'
 import { useEffect } from 'react'
 import { ComboProductCard } from '../combo-product-card'
-import { ProductEditDialog } from './product-edit-dialog'
+import { ComboEditDialog } from './combo-edit-dialog'
 
 interface AdminComboProductProps {
   data: ComboProduct[]
@@ -27,7 +27,7 @@ export const AdminComboProductList = ({ data }: AdminComboProductProps) => {
           comboProducts.map((product) => (
             <div className="relative" key={product.id}>
               <ComboProductCard product={product} />
-              <ProductEditDialog product={product} />
+              <ComboEditDialog product={product} />
             </div>
           ))}
       </div>

@@ -4,41 +4,48 @@ import { FormField } from '../ui/form-field'
 import { Button } from '../ui/button'
 import { Close } from '@radix-ui/react-dialog'
 import { useState } from 'react'
-import { Product } from '@/types/product'
-import { useProductStore } from '@/store/product-store'
-import { updateProduct } from '@/utils/api'
+import { updateComboProduct } from '@/utils/api'
+import { ComboProduct } from '@/types/combo-product'
+import { useComboProductStore } from '@/store/combo-product-store'
 
-interface EditProductFormProps {
-  product: Product
+interface EditComboFormProps {
+  product: ComboProduct
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
-  const products = useProductStore((state) => state.products)
-  const setProducts = useProductStore((state) => state.setProducts)
+export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
+  const comboProducts = useComboProductStore((state) => state.comboProducts)
+  const setComboProducts = useComboProductStore(
+    (state) => state.setComboProducts,
+  )
   const [formData, setFormData] = useState({
     title: product.title,
     description: product.description,
     price: product.price,
+    discountPrice: product.discountPrice,
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prevData) => ({ ...prevData, [name]: value }))
+    console.log(name, value)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const updated = await updateProduct(product.id, {
+      const updated = await updateComboProduct(product.id, {
         ...formData,
         price: Number(formData.price),
+        discountPrice: Number(formData.discountPrice),
       })
-      setProducts(
-        products.map((product) =>
+      setComboProducts(
+        comboProducts.map((product) =>
           product.id === updated.id ? updated : product,
         ),
       )
+      console.log('combo store', comboProducts)
+
       setOpen(false)
     } catch (error) {
       console.error(error)
@@ -64,7 +71,7 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
           fieldName="description"
           inputProps={{
             required: true,
-            maxLength: 45,
+            maxLength: 100,
             onChange: handleInputChange,
             value: formData.description,
           }}
@@ -76,6 +83,15 @@ export const EditProductForm = ({ product, setOpen }: EditProductFormProps) => {
             type: 'number',
             onChange: handleInputChange,
             value: formData.price,
+          }}
+        />
+        <FormField
+          fieldName="discountPrice"
+          inputProps={{
+            required: true,
+            type: 'number',
+            onChange: handleInputChange,
+            value: formData.discountPrice,
           }}
         />
       </div>
