@@ -4,7 +4,7 @@ export async function getProductData() {
     if (apiUrl) {
       const res = await fetch(apiUrl + '/products', {
         next: {
-          revalidate: false,
+          revalidate: 0,
           tags: ['products'],
         },
       })
@@ -25,7 +25,7 @@ export async function getComboProductData() {
     if (apiUrl) {
       const res = await fetch(apiUrl + '/combo', {
         next: {
-          revalidate: false,
+          revalidate: 0,
           tags: ['combo'],
         },
       })
