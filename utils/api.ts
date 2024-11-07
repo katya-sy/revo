@@ -95,6 +95,7 @@ export async function updateComboProduct(
           title: data.title,
           description: data.description,
           price: data.price,
+          discountPrice: data.discountPrice,
         }),
         headers: {
           'Content-Type': 'application/json',
