@@ -2,73 +2,21 @@
 import * as Tabs from '@radix-ui/react-tabs'
 import { BlockTitle } from './block-title'
 import { TabTrigger } from './ui/tab-trigger'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TabContent } from './ui/tab-content'
+import { Giftset } from '@/types/gifset'
+import { useGiftsetStore } from '@/store/giftset-store'
 
-export const Giftsets = () => {
-  const [value, setValue] = useState('tab0')
-  const tabContent = [
-    {
-      id: 1,
-      imgUrl: '/giftset-1.png',
-      title: 'Giftset "Cà phê phin Việt Nam"',
-      price: 285000,
-      description:
-        'Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.',
-      characteristics: [
-        {
-          iconName: 'grains',
-          title: 'Loại hạt',
-          desc: 'Fine Robusta Blend',
-        },
-        {
-          iconName: 'mountains',
-          title: 'Độ cao',
-          desc: '700 - 800m',
-        },
-      ],
-    },
-    {
-      id: 2,
-      imgUrl: '/giftset-1.png',
-      title: 'weg',
-      price: 285000,
-      description:
-        'Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.',
-      characteristics: [
-        {
-          iconName: 'grains',
-          title: 'Loại hạt',
-          desc: 'Fine Robusta Blend',
-        },
-        {
-          iconName: 'mountains',
-          title: 'Độ cao',
-          desc: '700 - 800m',
-        },
-      ],
-    },
-    {
-      id: 3,
-      imgUrl: '/giftset-1.png',
-      title: 'sfdgfh',
-      price: 285000,
-      description:
-        'Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.',
-      characteristics: [
-        {
-          iconName: 'grains',
-          title: 'Loại hạt',
-          desc: 'Fine Robusta Blend',
-        },
-        {
-          iconName: 'mountains',
-          title: 'Độ cao',
-          desc: '700 - 800m',
-        },
-      ],
-    },
-  ]
+interface GiftsetsProps {
+  data: Giftset[]
+}
+
+export const Giftsets = ({ data }: GiftsetsProps) => {
+  const [value, setValue] = useState('tab1')
+  const giftsets = useGiftsetStore((state) => state.giftsets)
+  const setGiftsets = useGiftsetStore((state) => state.setGiftsets)
+
+  useEffect(() => setGiftsets(data), [data])
 
   return (
     <div
@@ -87,18 +35,22 @@ export const Giftsets = () => {
             className="flex md:flex-col w-full md:w-16 lg:w-20"
             aria-label="Show giftsets"
           >
-            {tabContent.map((_item, index) => (
-              <TabTrigger key={index} activeValue={value} value={`tab${index}`}>
-                {index + 1}
+            {giftsets.map((item) => (
+              <TabTrigger
+                key={item.id}
+                activeValue={value}
+                value={`tab${item.id}`}
+              >
+                {item.id}
               </TabTrigger>
             ))}
           </Tabs.List>
           <div className="w-full">
-            {tabContent.map((item, index) => (
+            {giftsets.map((item) => (
               <TabContent
-                key={index}
+                key={item.id}
                 activeValue={value}
-                value={`tab${index}`}
+                value={`tab${item.id}`}
                 content={item}
               />
             ))}
