@@ -71,7 +71,7 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
           fieldName="description"
           inputProps={{
             required: true,
-            maxLength: 100,
+            maxLength: 75,
             onChange: handleInputChange,
             value: formData.description,
           }}
