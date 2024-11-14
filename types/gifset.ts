@@ -1,6 +1,6 @@
 import { Product } from './product'
 
-interface Characteristics {
+export interface Characteristics {
   iconName: string
   title: string
   desc: string

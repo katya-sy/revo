@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { updateGiftset } from '@/utils/api'
 import { Giftset } from '@/types/gifset'
 import { useGiftsetStore } from '@/store/giftset-store'
+import { EditCharacteristicsForm } from './edit-characteristics-form'
 
 interface EditGiftsetFormProps {
   giftset: Giftset
@@ -21,6 +22,9 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
     description: giftset.description,
     price: giftset.price,
   })
+  const [characteristics, setCharacteristics] = useState(
+    giftset.characteristics,
+  )
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -78,6 +82,14 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
             value: formData.price,
           }}
         />
+      </div>
+      <div className="flex justify-between gap-4">
+        {characteristics.map((characteristic) => (
+          <EditCharacteristicsForm
+            key={characteristic.title}
+            characteristic={characteristic}
+          />
+        ))}
       </div>
       <div className="flex justify-between gap-2">
         <Form.Submit asChild>
