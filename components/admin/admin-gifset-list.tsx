@@ -1,9 +1,9 @@
 'use client'
-import { ProductEditDialog } from './product-edit-dialog'
 import { useEffect } from 'react'
 import { Giftset } from '@/types/gifset'
 import { useGiftsetStore } from '@/store/giftset-store'
 import { GiftsetCard } from './giftset-card'
+import { GiftsetEditDialog } from './giftset-edit-dialog'
 
 interface AdminGiftsetListProps {
   data: Giftset[]
@@ -26,7 +26,7 @@ export const AdminGiftsetList = ({ data }: AdminGiftsetListProps) => {
             giftsets.map((item) => (
               <div className="relative" key={item.id}>
                 <GiftsetCard key={item.id} content={item} />
-                <ProductEditDialog product={item} />
+                <GiftsetEditDialog giftset={item} />
               </div>
             ))}
         </div>
