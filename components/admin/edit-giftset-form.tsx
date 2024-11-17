@@ -37,6 +37,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
       const updated = await updateGiftset(giftset.id, {
         ...formData,
         price: Number(formData.price),
+        characteristics,
       })
       setGiftsets(
         giftsets.map((giftset) =>
@@ -88,6 +89,8 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
           <EditCharacteristicsForm
             key={characteristic.title}
             characteristic={characteristic}
+            prevCharacteristics={characteristics}
+            setCharacteristics={setCharacteristics}
           />
         ))}
       </div>

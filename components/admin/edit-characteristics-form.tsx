@@ -2,21 +2,24 @@
 import * as Form from '@radix-ui/react-form'
 import { FormField } from '../ui/form-field'
 import { Button } from '../ui/button'
-import { Close } from '@radix-ui/react-dialog'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { Characteristics } from '@/types/gifset'
+import { CharacteristicIcons } from '../shared/characteristic-icons'
 
 interface EditCharacteristicsFormProps {
   characteristic: Characteristics
-  // setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  prevCharacteristics: Characteristics[]
+  setCharacteristics: Dispatch<SetStateAction<Characteristics[]>>
 }
 
 export const EditCharacteristicsForm = ({
   characteristic,
+  prevCharacteristics,
+  setCharacteristics,
 }: EditCharacteristicsFormProps) => {
   const [formData, setFormData] = useState({
     title: characteristic.title,
-    description: characteristic.desc,
+    desc: characteristic.desc,
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,17 +27,23 @@ export const EditCharacteristicsForm = ({
     setFormData((prevData) => ({ ...prevData, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log(formData)
+  const handleSubmit = async () => {
+    setCharacteristics(
+      prevCharacteristics.map((char) =>
+        char.title === characteristic.title
+          ? { ...characteristic, ...formData }
+          : char,
+      ),
+    )
   }
 
   return (
-    <Form.Root
-      onSubmit={(e) => handleSubmit(e)}
-      className="flex flex-col gap-5 w-full"
-    >
+    <Form.Root className="flex flex-col gap-5 w-full">
       <div className="flex flex-col gap-2">
+        <CharacteristicIcons
+          iconName={characteristic.iconName}
+          className="text-white"
+        />
         <FormField
           fieldName="title"
           inputProps={{
@@ -45,24 +54,23 @@ export const EditCharacteristicsForm = ({
           }}
         />
         <FormField
-          fieldName="description"
+          fieldName="desc"
           inputProps={{
             required: true,
             maxLength: 20,
             onChange: handleInputChange,
-            value: formData.description,
+            value: formData.desc,
           }}
         />
       </div>
       <div className="flex justify-between gap-2">
-        <Form.Submit asChild>
-          <Button>Save changes</Button>
-        </Form.Submit>
-        <Close asChild>
-          <Button intent="secondary" className="bg-grey hover:bg-grey/70">
-            Cancel
-          </Button>
-        </Close>
+        <Button
+          type="button"
+          onClick={handleSubmit}
+          className="px-2 py-1 text-sm"
+        >
+          Save changes
+        </Button>
       </div>
     </Form.Root>
   )

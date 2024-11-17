@@ -3,7 +3,7 @@
     {
       "id": 1,
       "imgUrl": "/product-1.png",
-      "title": "REVO Good ",
+      "title": "REVO Good tgujvg",
       "price": 200053,
       "description": "test test test rgdfg"
     },
@@ -53,13 +53,15 @@
       "characteristics": [
         {
           "iconName": "grains",
-          "title": "Loại hạt",
-          "desc": "Fine Robusta Blend"
+          "title": "Loại ksejf",
+          "desc": "Fine Robusta Blend",
+          "description": "Fine dfgdfgdf"
         },
         {
           "iconName": "mountains",
           "title": "Độ cao",
-          "desc": "700 - 800m"
+          "desc": "100 - 800m",
+          "description": "700 - 800m1"
         }
       ]
     },
@@ -78,7 +80,8 @@
         {
           "iconName": "mountains",
           "title": "Độ cao",
-          "desc": "700 - 800m"
+          "desc": "700 - 800m",
+          "description": "1 - 80m"
         }
       ]
     },

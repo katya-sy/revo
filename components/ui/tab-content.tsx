@@ -66,7 +66,10 @@ export const TabContent = ({
               <div className="flex max-lg:flex-wrap gap-x-10 gap-y-4">
                 {content.characteristics.map((item) => (
                   <div key={item.title} className="flex items-center gap-3">
-                    <CharacteristicIcons iconName={item.iconName} />
+                    <CharacteristicIcons
+                      className="text-blue"
+                      iconName={item.iconName}
+                    />
                     <p className="flex flex-col text-blue">
                       <span className="font-light">{item.title}</span>
                       <span className="font-semibold">{item.desc}</span>

@@ -143,6 +143,7 @@ export async function updateGiftset(
     title: string
     description: string
     price: number
+    characteristics: object
   },
 ) {
   try {
@@ -154,6 +155,7 @@ export async function updateGiftset(
           title: data.title,
           description: data.description,
           price: data.price,
+          characteristics: data.characteristics,
         }),
         headers: {
           'Content-Type': 'application/json',
