@@ -71,6 +71,19 @@ export const EditCharacteristicsForm = ({
         >
           Save changes
         </Button>
+        <Button
+          type="button"
+          intent="secondary"
+          className="bg-grey hover:bg-grey/70 px-2 py-1 text-sm"
+          onClick={() =>
+            setFormData({
+              title: characteristic.title,
+              desc: characteristic.desc,
+            })
+          }
+        >
+          Cancel
+        </Button>
       </div>
     </Form.Root>
   )
