@@ -85,9 +85,9 @@ export const Header = () => {
           className="max-md:right-0 max-md:z-[3] max-md:absolute flex flex-col flex-shrink-0 gap-28 max-md:gap-16 bg-blue max-md:px-14 py-16 max-md:py-10 md:[clip-path:inset(0%_0%_0%_0%)] pr-6 pl-14 max-lg:pl-8 max-md:h-full menu"
         >
           <button className="relative w-max text-grey animate-button">
-            <div className="hover:text-beige transition-colors">
+            <Link href="/cart" className="hover:text-beige transition-colors">
               <Cart />
-            </div>
+            </Link>
             <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
               2
             </span>

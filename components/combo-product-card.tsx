@@ -43,7 +43,7 @@ export const ComboProductCard = ({ product }: ComboProductCardProps) => {
           <p className="font-light text-blue-dark">{product.description}</p>
         </div>
         <div className="flex justify-between gap-2">
-          <BuyButton />
+          <BuyButton product={product} />
           <Button intent="secondary">CHI TIẾT</Button>
         </div>
       </div>

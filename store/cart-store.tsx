@@ -10,5 +10,8 @@ interface CartStoreProps {
 
 export const useCartStore = create<CartStoreProps>()((set) => ({
   cartProducts: [],
-  setCartProducts: (products) => set({ cartProducts: products }),
+  setCartProducts: (products) => {
+    set({ cartProducts: products })
+    localStorage.setItem('cart', JSON.stringify(products))
+  },
 }))

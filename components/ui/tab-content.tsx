@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import { animateTab } from '@/utils/animate-config'
 import { Giftset } from '@/types/gifset'
 import { formatPrice } from './../../utils/format-price'
+import { BuyButton } from '../buy-button'
 
 interface TabContentProps {
   value: string
@@ -79,7 +80,7 @@ export const TabContent = ({
               </div>
             </div>
             <div className="flex max-xs:flex-wrap justify-between gap-x-16 gap-y-4">
-              <Button className="w-full xs:w-48">MUA NGAY</Button>
+              <BuyButton product={content} className="w-full xs:w-48" />
               <Button className="w-full xs:w-48" intent="secondary">
                 CHI TIẾT
               </Button>

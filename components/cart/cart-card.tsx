@@ -33,7 +33,7 @@ export const CartCard = ({ product }: CartCardProps) => {
           </h4>
         </div>
         <div className="flex max-sm:flex-col sm:justify-between gap-2">
-          <BuyButton />
+          <BuyButton product={product} />
         </div>
       </div>
     </motion.div>

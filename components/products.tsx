@@ -8,6 +8,7 @@ import { BlockTitle } from './block-title'
 import { Button } from './ui/button'
 import { useProductStore } from '@/store/product-store'
 import { Product } from '@/types/product'
+import { useCartStore } from '@/store/cart-store'
 
 interface ProductsProps {
   data: Product[]
@@ -16,12 +17,18 @@ interface ProductsProps {
 export const Products = ({ data }: ProductsProps) => {
   const products = useProductStore((state) => state.products)
   const setProducts = useProductStore((state) => state.setProducts)
+  const setCartProducts = useCartStore((state) => state.setCartProducts)
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
   const [slides, setSlides] = useState<Product[][]>([])
 
-  useEffect(() => setProducts(data), [data])
+  useEffect(() => {
+    setProducts(data)
+    const cartData = localStorage.getItem('cart')
+    if (cartData) setCartProducts(JSON.parse(cartData))
+    else setCartProducts([])
+  }, [data])
 
   useEffect(() => {
     for (let i = 0; i < products?.length; i += 2) {

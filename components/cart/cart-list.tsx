@@ -29,7 +29,7 @@ export const CartList = ({ data }: CartListProps) => {
       <h3 className="font-black font-montserrat text-3xl text-blue text-center uppercase">
         Your cart
       </h3>
-      <div className="gap-8 grid grid-cols-2 max-[1130px]:grid-cols-1 max-sm:grid-cols-2 max-xs:grid-cols-1">
+      <div className="items-stretch gap-8 grid grid-cols-2 max-[1130px]:grid-cols-1 max-sm:grid-cols-2 max-xs:grid-cols-1">
         {cartProducts &&
           cartProducts.map((product) => (
             <div className="relative" key={`${product.id}${product.title}`}>

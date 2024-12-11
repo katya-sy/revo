@@ -33,7 +33,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         <p className="font-light text-blue-dark">{product.description}</p>
         <div className="flex max-sm:flex-col sm:justify-between gap-2">
-          <BuyButton />
+          <BuyButton product={product} />
           <Button intent="secondary">CHI TIẾT</Button>
         </div>
       </div>
