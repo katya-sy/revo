@@ -1,17 +1,18 @@
 'use client'
 import Image from 'next/image'
-import { Button } from './ui/button'
 import * as motion from 'framer-motion/client'
 import { animateCard } from '@/utils/animate-config'
 import { Product } from '@/types/product'
 import { formatPrice } from '@/utils/format-price'
-import { BuyButton } from './buy-button'
+import { Giftset } from '@/types/gifset'
+import { ComboProduct } from '@/types/combo-product'
+import { BuyButton } from '../buy-button'
 
-interface ProductCardProps {
-  product: Product
+interface CartCardProps {
+  product: Product | Giftset | ComboProduct
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const CartCard = ({ product }: CartCardProps) => {
   return (
     <motion.div
       whileInView="show"
@@ -31,10 +32,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             {product.title}
           </h4>
         </div>
-        <p className="font-light text-blue-dark">{product.description}</p>
         <div className="flex max-sm:flex-col sm:justify-between gap-2">
           <BuyButton />
-          <Button intent="secondary">CHI TIẾT</Button>
         </div>
       </div>
     </motion.div>

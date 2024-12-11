@@ -5,6 +5,7 @@ import * as motion from 'framer-motion/client'
 import { animateCard } from '@/utils/animate-config'
 import { ComboProduct } from '@/types/combo-product'
 import { formatPrice } from '@/utils/format-price'
+import { BuyButton } from './buy-button'
 
 interface ComboProductCardProps {
   product: ComboProduct
@@ -42,7 +43,7 @@ export const ComboProductCard = ({ product }: ComboProductCardProps) => {
           <p className="font-light text-blue-dark">{product.description}</p>
         </div>
         <div className="flex justify-between gap-2">
-          <Button>MUA NGAY</Button>
+          <BuyButton />
           <Button intent="secondary">CHI TIẾT</Button>
         </div>
       </div>

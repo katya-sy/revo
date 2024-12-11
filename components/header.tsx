@@ -88,9 +88,9 @@ export const Header = () => {
             <div className="hover:text-beige transition-colors">
               <Cart />
             </div>
-            <div className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
+            <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
               2
-            </div>
+            </span>
           </button>
           <nav>
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">
