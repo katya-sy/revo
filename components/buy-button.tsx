@@ -33,14 +33,15 @@ export const BuyButton = ({ product, className }: BuyButtonProps) => {
   }
 
   const increaseProduct = () => {
-    setCount(count + 1)
+    const currCount = count + 1
+    setCount(currCount)
     setCartProducts(
       cartProducts.map((prod) => {
         if (
           prod.product.id === product.id &&
           prod.product.title === product.title
         ) {
-          return { product: prod.product, count: count }
+          return { product: prod.product, count: currCount }
         }
         return prod
       }),
@@ -57,14 +58,15 @@ export const BuyButton = ({ product, className }: BuyButtonProps) => {
       setCartProducts(cartProducts.filter((prod) => prod !== pr))
       setCount(0)
     } else {
-      setCount(count - 1)
+      const currCount = count - 1
+      setCount(currCount)
       setCartProducts(
         cartProducts.map((prod) => {
           if (
             prod.product.id === product.id &&
             prod.product.title === product.title
           ) {
-            return { product: prod.product, count: count }
+            return { product: prod.product, count: currCount }
           }
           return prod
         }),

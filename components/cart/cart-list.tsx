@@ -1,12 +1,16 @@
 'use client'
 import { useCartStore } from '@/store/cart-store'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { CartCard } from './cart-card'
 import { Button } from '../ui/button'
+import * as Dialog from '@radix-ui/react-dialog'
+import { CustomDialogPortal } from '../ui/custom-dialog-portal'
+import { formatPrice } from '@/utils/format-price'
 
 export const CartList = () => {
   const cartProducts = useCartStore((state) => state.cartProducts)
   const setCartProducts = useCartStore((state) => state.setCartProducts)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const products = localStorage.getItem('cart')
@@ -31,8 +35,32 @@ export const CartList = () => {
           ))}
       </div>
       {cartProducts.length > 0 ? (
-        <div className="z-[1] flex justify-end gap-5">
-          <Button>Оплатить</Button>
+        <div className="flex justify-end gap-5">
+          <Dialog.Root open={open} onOpenChange={setOpen}>
+            <Dialog.Trigger asChild>
+              <Button>Оплатить</Button>
+            </Dialog.Trigger>
+            <CustomDialogPortal setOpen={setOpen}>
+              <div className="flex flex-col gap-5">
+                <Dialog.Title asChild>
+                  <h2 className="font-black font-montserrat text-2xl text-center text-grey uppercase">
+                    Thank you for your purchase!
+                  </h2>
+                </Dialog.Title>
+                <Dialog.Description asChild>
+                  <p className="font-light text-grey text-lg">
+                    The purchase price was{' '}
+                    {formatPrice(
+                      cartProducts.reduce(
+                        (sum, prod) => (sum += prod.product.price * prod.count),
+                        0,
+                      ),
+                    )}
+                  </p>
+                </Dialog.Description>
+              </div>
+            </CustomDialogPortal>
+          </Dialog.Root>
           <Button intent="secondary" onClick={() => setCartProducts([])}>
             Очистить корзину
           </Button>
