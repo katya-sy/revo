@@ -2,6 +2,7 @@
 import { useCartStore } from '@/store/cart-store'
 import { useEffect } from 'react'
 import { CartCard } from './cart-card'
+import { Button } from '../ui/button'
 
 export const CartList = () => {
   const cartProducts = useCartStore((state) => state.cartProducts)
@@ -29,6 +30,18 @@ export const CartList = () => {
             </div>
           ))}
       </div>
+      {cartProducts.length > 0 ? (
+        <div className="z-[1] flex justify-end gap-5">
+          <Button>Оплатить</Button>
+          <Button intent="secondary" onClick={() => setCartProducts([])}>
+            Очистить корзину
+          </Button>
+        </div>
+      ) : (
+        <h3 className="font-light text-2xl text-blue text-center">
+          Your cart is empty
+        </h3>
+      )}
     </div>
   )
 }
