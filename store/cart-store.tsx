@@ -4,8 +4,16 @@ import { Product } from '@/types/product'
 import { create } from 'zustand'
 
 interface CartStoreProps {
-  cartProducts: Product[] | Giftset[] | ComboProduct[]
-  setCartProducts: (products: Product[] | Giftset[] | ComboProduct[]) => void
+  cartProducts: {
+    product: Product | Giftset | ComboProduct
+    count: number
+  }[]
+  setCartProducts: (
+    products: {
+      product: Product | Giftset | ComboProduct
+      count: number
+    }[],
+  ) => void
 }
 
 export const useCartStore = create<CartStoreProps>()((set) => ({
