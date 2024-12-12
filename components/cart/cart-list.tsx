@@ -1,20 +1,9 @@
 'use client'
 import { useCartStore } from '@/store/cart-store'
-import { Product } from '@/types/product'
 import { useEffect } from 'react'
-import { Giftset } from '@/types/gifset'
-import { ComboProduct } from '@/types/combo-product'
 import { CartCard } from './cart-card'
 
-interface CartListProps {
-  data?: {
-    products: Product[]
-    comboProducts: ComboProduct[]
-    giftsets: Giftset[]
-  }
-}
-
-export const CartList = ({ data }: CartListProps) => {
+export const CartList = () => {
   const cartProducts = useCartStore((state) => state.cartProducts)
   const setCartProducts = useCartStore((state) => state.setCartProducts)
 
