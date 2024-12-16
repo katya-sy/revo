@@ -9,6 +9,7 @@ import { Button } from './ui/button'
 import { useProductStore } from '@/store/product-store'
 import { Product } from '@/types/product'
 import { useCartStore } from '@/store/cart-store'
+import { useTranslations } from 'next-intl'
 
 interface ProductsProps {
   data: Product[]
@@ -22,6 +23,7 @@ export const Products = ({ data }: ProductsProps) => {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
   const [slides, setSlides] = useState<Product[][]>([])
+  const t = useTranslations('products');
 
   useEffect(() => {
     setProducts(data)
@@ -62,7 +64,7 @@ export const Products = ({ data }: ProductsProps) => {
       id="products"
       className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-sm:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] container"
     >
-      <BlockTitle title="Choose Your Favorite" subtitle="CHUẨN GU ĐÚNG VỊ" />
+      <BlockTitle title={t('title')} subtitle={t('subtitle')} />
       <div className="relative z-[2]" ref={emblaRef}>
         <div className="flex">
           {slides &&

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
 import { animateTitle } from '@/utils/animate-config'
-import Link from 'next/link'
+import {Link} from '@/i18n/routing'
 import {useTranslations} from 'next-intl';
 
 export const Header = () => {

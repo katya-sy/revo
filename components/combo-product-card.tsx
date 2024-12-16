@@ -6,12 +6,15 @@ import { animateCard } from '@/utils/animate-config'
 import { ComboProduct } from '@/types/combo-product'
 import { formatPrice } from '@/utils/format-price'
 import { BuyButton } from './buy-button'
+import { useTranslations } from 'next-intl'
 
 interface ComboProductCardProps {
   product: ComboProduct
 }
 
 export const ComboProductCard = ({ product }: ComboProductCardProps) => {
+  const t = useTranslations('buttons');
+
   return (
     <motion.div
       whileInView="show"
@@ -44,7 +47,7 @@ export const ComboProductCard = ({ product }: ComboProductCardProps) => {
         </div>
         <div className="flex justify-between gap-2">
           <BuyButton product={product} />
-          <Button intent="secondary">CHI TIẾT</Button>
+          <Button intent="secondary">{t('more')}</Button>
         </div>
       </div>
     </motion.div>

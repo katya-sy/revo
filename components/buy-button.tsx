@@ -5,6 +5,7 @@ import { Giftset } from '@/types/gifset'
 import { ComboProduct } from '@/types/combo-product'
 import { useCartStore } from '@/store/cart-store'
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface BuyButtonProps {
   product: Product | Giftset | ComboProduct
@@ -15,6 +16,7 @@ export const BuyButton = ({ product, className }: BuyButtonProps) => {
   const cartProducts = useCartStore((state) => state.cartProducts)
   const setCartProducts = useCartStore((state) => state.setCartProducts)
   const [count, setCount] = useState<number>(1)
+  const t = useTranslations('buttons');
 
   useEffect(() => {
     const currentProduct = cartProducts.find(
@@ -95,7 +97,7 @@ export const BuyButton = ({ product, className }: BuyButtonProps) => {
     </div>
   ) : (
     <Button className={className} onClick={addCart}>
-      MUA NGAY
+      {t('buy')}
     </Button>
   )
 }

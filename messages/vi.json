@@ -10,7 +10,7 @@
       "links": {
         "coffee": "Cà phê",
         "lng": "Ngôn ngữ",
-        "combo": "Bộ combo",
+        "combo": "PHIN PHÊ COMBO",
         "giftset": "Bộ quà tặng",
         "admin": "Quản trị viên"
       }
@@ -37,5 +37,24 @@
         "text": "Những hạt cà phê được lột xác qua quá trình rang xay kỹ lưỡng và nghiêm ngặt."
       }
     }
+  },
+  "products": {
+    "title": "Chọn Sản Phẩm Yêu Thích",
+    "subtitle": "CHUẨN GU ĐÚNG VỊ"
+  },
+  "giftsets": {
+    "title": "Món Quà Tốt Nhất Cho Bạn Bè",
+    "subtitle": "Bộ quà tặng"
+  },
+  "combo": {
+    "title": "Cà Phê Cá Nhân Hóa Của Bạn",
+    "subtitle": "COMBO PHIN PHÊ"
+  },
+  "footer": {
+    "copyright": "Cà Phê Việt Nam"
+  },
+  "buttons": {
+    "buy": "MUA NGAY",
+    "more": "CHI TIẾT"
   }
 }

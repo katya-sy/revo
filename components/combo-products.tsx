@@ -8,6 +8,7 @@ import { Button } from './ui/button'
 import { ComboProductSlide } from './combo-product-slide'
 import { ComboProduct } from '@/types/combo-product'
 import { useComboProductStore } from '@/store/combo-product-store'
+import { useTranslations } from 'next-intl'
 
 interface ComboProductProps {
   data: ComboProduct[]
@@ -21,6 +22,7 @@ export const ComboProducts = ({ data }: ComboProductProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel()
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true)
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
+  const t = useTranslations('combo');
 
   useEffect(() => setComboProducts(data), [data])
 
@@ -51,8 +53,8 @@ export const ComboProducts = ({ data }: ComboProductProps) => {
     >
       <div className="flex flex-col gap-16 container">
         <BlockTitle
-          title="Your Personalized Coffee"
-          subtitle="COMBO PHIN PHÊ"
+          title={t('title')}
+          subtitle={t('subtitle')}
         />
         <div className="relative z-[2]" ref={emblaRef}>
           <div className="flex">

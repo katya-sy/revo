@@ -9,6 +9,7 @@ import { animateTab } from '@/utils/animate-config'
 import { Giftset } from '@/types/gifset'
 import { formatPrice } from './../../utils/format-price'
 import { BuyButton } from '../buy-button'
+import { useTranslations } from 'next-intl'
 
 interface TabContentProps {
   value: string
@@ -21,6 +22,8 @@ export const TabContent = ({
   activeValue,
   content,
 }: TabContentProps) => {
+  const t = useTranslations('buttons');
+
   return (
     <Content
       className={`${value === activeValue ? 'flex' : 'hidden'} relative before:top-0 max-md:flex-col before:bottom-0 before:left-0 before:absolute lg:before:w-64 before:w-48 before:bg-grey max-md:before:hidden transition-all items-center justify-end bg-white duration-300 h-full`}
@@ -82,7 +85,7 @@ export const TabContent = ({
             <div className="flex max-xs:flex-wrap justify-between gap-x-16 gap-y-4">
               <BuyButton product={content} className="w-full xs:w-48" />
               <Button className="w-full xs:w-48" intent="secondary">
-                CHI TIẾT
+                {t('more')}
               </Button>
             </div>
           </motion.div>

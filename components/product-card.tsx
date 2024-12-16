@@ -6,12 +6,15 @@ import { animateCard } from '@/utils/animate-config'
 import { Product } from '@/types/product'
 import { formatPrice } from '@/utils/format-price'
 import { BuyButton } from './buy-button'
+import { useTranslations } from 'next-intl'
 
 interface ProductCardProps {
   product: Product
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+  const t = useTranslations('buttons');
+
   return (
     <motion.div
       whileInView="show"
@@ -34,7 +37,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <p className="font-light text-blue-dark">{product.description}</p>
         <div className="flex max-sm:flex-col sm:justify-between gap-2">
           <BuyButton product={product} />
-          <Button intent="secondary">CHI TIẾT</Button>
+          <Button intent="secondary">{t('more')}</Button>
         </div>
       </div>
     </motion.div>

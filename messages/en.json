@@ -37,5 +37,24 @@
         "text": "Coffee beans are transformed through a thorough and rigorous roasting process."
       }
     }
+  },
+  "products": {
+    "title": "Choose Your Favorite",
+    "subtitle": "EXACTLY YOUR TASTE"
+  },
+  "giftsets": {
+    "title": "Best Gift For Best Friend",
+    "subtitle": "GIFTSET"
+  },
+  "combo": {
+    "title": "Your Personalized Coffee",
+    "subtitle": "COMBO"
+  },
+  "footer": {
+    "copyright": "Coffee Vietnam"
+  },
+  "buttons": {
+    "buy": "BUY NOW",
+    "more": "DETAILS"
   }
 }
