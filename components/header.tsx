@@ -5,14 +5,15 @@ import { useEffect, useState } from 'react'
 import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
 import { animateTitle } from '@/utils/animate-config'
-import {Link} from '@/i18n/routing'
-import {useTranslations} from 'next-intl';
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
+import { LocaleSwitcher } from './locale-switcher'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
   const scope = useMenuAnimation(open)
   const isMobile = window.innerWidth < 768
-  const t = useTranslations('header');
+  const t = useTranslations('header')
 
   useEffect(() => {
     const body = document.querySelector('body')
@@ -41,8 +42,7 @@ export const Header = () => {
             open ? 'absolute md:hidden inset-0 z-[3] bg-black/60' : 'hidden'
           } md:hidden overlay`}
         />
-        <div
-          className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
+        <div className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
           <Image
             src="/logo.svg"
             width={110}
@@ -54,20 +54,23 @@ export const Header = () => {
             whileInView="show"
             initial="hidden"
             variants={animateTitle}
-            className="bottom-0 text-nowrap absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight"
+            className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey text-nowrap sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight"
           >
-            <motion.span variants={animateTitle}>{t('mainTitle.1')}</motion.span>
+            <motion.span variants={animateTitle}>
+              {t('mainTitle.1')}
+            </motion.span>
             <motion.span
               variants={animateTitle}
               className="relative after:top-0 max-sm:after:-right-2 after:-right-4 after:bottom-0 max-sm:after:-left-2 after:-left-4 z-[2] after:-z-[2] after:absolute flex justify-center items-center after:bg-beige max-sm:w-max text-grey"
             >
               {t('mainTitle.2')}
             </motion.span>
-            <motion.span variants={animateTitle}>{t('mainTitle.3')}</motion.span>
+            <motion.span variants={animateTitle}>
+              {t('mainTitle.3')}
+            </motion.span>
           </motion.h1>
         </div>
-        <div
-          className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
+        <div className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
             className="h-auto object-cover"
             src="/header-image.png"
@@ -92,8 +95,7 @@ export const Header = () => {
             <Link href="/cart" className="hover:text-beige transition-colors">
               <Cart />
             </Link>
-            <span
-              className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
+            <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
               2
             </span>
           </button>
@@ -101,13 +103,11 @@ export const Header = () => {
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">
               <li className="font-bold">{t('navbar.header')}</li>
               <li className="hover:text-beige transition-colors">
-                <Link onClick={handleLinkClick} href="#products">
-                  {t('navbar.links.coffee')}
-                </Link>
+                <LocaleSwitcher />
               </li>
               <li className="hover:text-beige transition-colors">
-                <Link onClick={handleLinkClick} href="">
-                  {t('navbar.links.lng')}
+                <Link onClick={handleLinkClick} href="#products">
+                  {t('navbar.links.coffee')}
                 </Link>
               </li>
               <li className="hover:text-beige transition-colors">

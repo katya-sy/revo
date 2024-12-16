@@ -9,12 +9,15 @@
       "header": "Home Page",
       "links": {
         "coffee": "Coffee",
-        "lng": "Language",
         "combo": "Combosets",
         "giftset": "Giftsets",
         "admin": "Admin"
       }
     }
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "locale": "{locale, select, en {English} vi {Vietnamese} ru {Russian} other {unknown}}"
   },
   "benefits": {
     "title": "Your Personalized Coffee",

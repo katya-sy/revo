@@ -9,12 +9,15 @@
       "header": "Trang chủ",
       "links": {
         "coffee": "Cà phê",
-        "lng": "Ngôn ngữ",
         "combo": "PHIN PHÊ COMBO",
         "giftset": "Bộ quà tặng",
         "admin": "Quản trị viên"
       }
     }
+  },
+  "localeSwitcher": {
+    "label": "Ngôn ngữ",
+    "locale": "{locale, select, en {Tiếng Anh} vi {Tiếng Việt} ru {Tiếng Nga} other {Неизвестно}}"
   },
   "benefits": {
     "title": "Của bạn cá nhân hóa cà phê",

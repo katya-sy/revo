@@ -9,12 +9,15 @@
       "header": "Главная",
       "links": {
         "coffee": "Кофе",
-        "lng": "Язык",
         "combo": "Комбо наборы",
         "giftset": "Подарки",
         "admin": "Админка"
       }
     }
+  },
+  "localeSwitcher": {
+    "label": "Язык",
+    "locale": "{locale, select, en {Английский} vi {Вьетнамский} ru {Русский} other {Неизвестно}}"
   },
   "benefits": {
     "title": "Ваш уникальный кофе",
