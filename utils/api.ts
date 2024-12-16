@@ -1,8 +1,9 @@
-export async function getProductData() {
+const apiUrl = process.env.NEXT_PUBLIC_API_URL
+
+export async function getProductData(locale: string) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
-      const res = await fetch(apiUrl + '/products', {
+      const res = await fetch(`${apiUrl}/${locale}/products`, {
         next: {
           revalidate: 0,
           tags: ['products'],
@@ -19,11 +20,10 @@ export async function getProductData() {
   }
 }
 
-export async function getComboProductData() {
+export async function getComboProductData(locale: string) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
-      const res = await fetch(apiUrl + '/combo', {
+      const res = await fetch(`${apiUrl}/${locale}/combo`, {
         next: {
           revalidate: 0,
           tags: ['combo'],
@@ -40,11 +40,10 @@ export async function getComboProductData() {
   }
 }
 
-export async function getGiftsetData() {
+export async function getGiftsetData(locale: string) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
-      const res = await fetch(apiUrl + '/giftsets', {
+      const res = await fetch(`${apiUrl}/${locale}/giftsets`, {
         next: {
           revalidate: 0,
           tags: ['giftsets'],
@@ -70,7 +69,6 @@ export async function updateProduct(
   },
 ) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
       const res = await fetch(`${apiUrl}/products/${id}`, {
         method: 'PATCH',
@@ -108,7 +106,6 @@ export async function updateComboProduct(
   },
 ) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
       const res = await fetch(`${apiUrl}/combo/${id}`, {
         method: 'PATCH',
@@ -147,7 +144,6 @@ export async function updateGiftset(
   },
 ) {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL
     if (apiUrl) {
       const res = await fetch(`${apiUrl}/giftsets/${id}`, {
         method: 'PATCH',

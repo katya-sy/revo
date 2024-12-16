@@ -9,11 +9,13 @@ import {
   getGiftsetData,
   getProductData,
 } from '@/utils/api'
+import { getLocale } from 'next-intl/server'
 
 export default async function Admin() {
-  const products = (await getProductData()) as Product[]
-  const comboProducts = (await getComboProductData()) as ComboProduct[]
-  const giftsets = (await getGiftsetData()) as Giftset[]
+  const locale = await getLocale()
+  const products = (await getProductData(locale)) as Product[]
+  const comboProducts = (await getComboProductData(locale)) as ComboProduct[]
+  const giftsets = (await getGiftsetData(locale)) as Giftset[]
 
   return (
     <div className="bg-beige-light overflow-x-hidden">

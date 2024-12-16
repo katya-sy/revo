@@ -16,7 +16,7 @@ export const Giftsets = ({ data }: GiftsetsProps) => {
   const [value, setValue] = useState('tab1')
   const giftsets = useGiftsetStore((state) => state.giftsets)
   const setGiftsets = useGiftsetStore((state) => state.setGiftsets)
-  const t = useTranslations('giftsets');
+  const t = useTranslations('giftsets')
 
   useEffect(() => setGiftsets(data), [data])
 
@@ -37,25 +37,27 @@ export const Giftsets = ({ data }: GiftsetsProps) => {
             className="flex md:flex-col w-full md:w-16 lg:w-20"
             aria-label="Show giftsets"
           >
-            {giftsets.map((item) => (
-              <TabTrigger
-                key={item.id}
-                activeValue={value}
-                value={`tab${item.id}`}
-              >
-                {item.id}
-              </TabTrigger>
-            ))}
+            {giftsets &&
+              giftsets.map((item) => (
+                <TabTrigger
+                  key={item.id}
+                  activeValue={value}
+                  value={`tab${item.id}`}
+                >
+                  {item.id}
+                </TabTrigger>
+              ))}
           </Tabs.List>
           <div className="w-full">
-            {giftsets.map((item) => (
-              <TabContent
-                key={item.id}
-                activeValue={value}
-                value={`tab${item.id}`}
-                content={item}
-              />
-            ))}
+            {giftsets &&
+              giftsets.map((item) => (
+                <TabContent
+                  key={item.id}
+                  activeValue={value}
+                  value={`tab${item.id}`}
+                  content={item}
+                />
+              ))}
           </div>
         </Tabs.Root>
       </div>
