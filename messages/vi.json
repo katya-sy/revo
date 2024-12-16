@@ -15,5 +15,27 @@
         "admin": "Quản trị viên"
       }
     }
+  },
+  "benefits": {
+    "title": "Của bạn cá nhân hóa cà phê",
+    "subtitle": "CÀ PHÊ XÂY DỰNG CƠ SỞ CỦA BẠN",
+    "items": {
+      "1": {
+        "title": "Nguồn gốc",
+        "text": "Những hạt cà phê Arabica, Robusta đạt chất lượng theo tiêu chuẩn quốc tế."
+      },
+      "2": {
+        "title": "Chất lượng",
+        "text": "Từng một hạt cà phê là cả một quá trình tập trung cao độ của nghệ nhân cà phê."
+      },
+      "3": {
+        "title": "Các loại hạt",
+        "text": "70% chất lượng tách cà phê đến từ nguồn gốc và chất lượng green bean."
+      },
+      "4": {
+        "title": "Pha chế",
+        "text": "Những hạt cà phê được lột xác qua quá trình rang xay kỹ lưỡng và nghiêm ngặt."
+      }
+    }
   }
 }

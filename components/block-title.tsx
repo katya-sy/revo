@@ -15,7 +15,7 @@ export const BlockTitle = ({ title, subtitle }: BlockTitleProps) => {
       variants={animateBlockTitle}
       className="flex flex-col items-center gap-2 text-blue"
     >
-      <motion.h2 variants={animateBlockTitle} className="font-bold text-xl">
+      <motion.h2 variants={animateBlockTitle} className="font-bold text-center text-xl">
         {title}
       </motion.h2>
       <motion.h3

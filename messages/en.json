@@ -15,5 +15,27 @@
         "admin": "Admin"
       }
     }
+  },
+  "benefits": {
+    "title": "Your Personalized Coffee",
+    "subtitle": "COFFEE BUILD YOUR BASE",
+    "items": {
+      "1": {
+        "title": "Source",
+        "text": "Arabica and Robusta coffee beans meet international quality standards."
+      },
+      "2": {
+        "title": "Quality",
+        "text": "Each coffee bean is a highly concentrated process of the coffee artisan."
+      },
+      "3": {
+        "title": "Nuts",
+        "text": "70% of the quality of a cup of coffee comes from the origin and quality of the green bean."
+      },
+      "4": {
+        "title": "Bartending",
+        "text": "Coffee beans are transformed through a thorough and rigorous roasting process."
+      }
+    }
   }
 }
