@@ -61,6 +61,7 @@ export async function getGiftsetData(locale: string) {
 }
 
 export async function updateProduct(
+  locale: string,
   id: number,
   data: {
     title: string
@@ -70,7 +71,7 @@ export async function updateProduct(
 ) {
   try {
     if (apiUrl) {
-      const res = await fetch(`${apiUrl}/products/${id}`, {
+      const res = await fetch(`${apiUrl}/${locale}/products/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           title: data.title,
@@ -97,6 +98,7 @@ export async function updateProduct(
 }
 
 export async function updateComboProduct(
+  locale: string,
   id: number,
   data: {
     title: string
@@ -107,7 +109,7 @@ export async function updateComboProduct(
 ) {
   try {
     if (apiUrl) {
-      const res = await fetch(`${apiUrl}/combo/${id}`, {
+      const res = await fetch(`${apiUrl}/${locale}/combo/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           title: data.title,
@@ -135,6 +137,7 @@ export async function updateComboProduct(
 }
 
 export async function updateGiftset(
+  locale: string,
   id: number,
   data: {
     title: string
@@ -145,7 +148,7 @@ export async function updateGiftset(
 ) {
   try {
     if (apiUrl) {
-      const res = await fetch(`${apiUrl}/giftsets/${id}`, {
+      const res = await fetch(`${apiUrl}/${locale}/giftsets/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           title: data.title,

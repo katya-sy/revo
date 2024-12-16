@@ -8,7 +8,7 @@ import { updateGiftset } from '@/utils/api'
 import { Giftset } from '@/types/gifset'
 import { useGiftsetStore } from '@/store/giftset-store'
 import { EditCharacteristicsForm } from './edit-characteristics-form'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 interface EditGiftsetFormProps {
   giftset: Giftset
@@ -27,6 +27,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
     giftset.characteristics,
   )
   const t = useTranslations('buttons')
+  const locale = useLocale()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -36,7 +37,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const updated = await updateGiftset(giftset.id, {
+      const updated = await updateGiftset(locale, giftset.id, {
         ...formData,
         price: Number(formData.price),
         characteristics,

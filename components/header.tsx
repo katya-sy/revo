@@ -8,9 +8,11 @@ import { animateTitle } from '@/utils/animate-config'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import { LocaleSwitcher } from './locale-switcher'
+import { useCartStore } from '@/store/cart-store'
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
+  const cartProducts = useCartStore((state) => state.cartProducts)
   const scope = useMenuAnimation(open)
   const isMobile = window.innerWidth < 768
   const t = useTranslations('header')
@@ -95,9 +97,11 @@ export const Header = () => {
             <Link href="/cart" className="hover:text-beige transition-colors">
               <Cart />
             </Link>
-            <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
-              2
-            </span>
+            {cartProducts.length > 0 && (
+              <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
+                {cartProducts.length}
+              </span>
+            )}
           </button>
           <nav>
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">

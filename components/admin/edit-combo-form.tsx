@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { updateComboProduct } from '@/utils/api'
 import { ComboProduct } from '@/types/combo-product'
 import { useComboProductStore } from '@/store/combo-product-store'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 interface EditComboFormProps {
   product: ComboProduct
@@ -17,15 +17,16 @@ interface EditComboFormProps {
 export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
   const comboProducts = useComboProductStore((state) => state.comboProducts)
   const setComboProducts = useComboProductStore(
-    (state) => state.setComboProducts
+    (state) => state.setComboProducts,
   )
   const [formData, setFormData] = useState({
     title: product.title,
     description: product.description,
     price: product.price,
-    discountPrice: product.discountPrice
+    discountPrice: product.discountPrice,
   })
   const t = useTranslations('buttons')
+  const locale = useLocale()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -36,15 +37,15 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const updated = await updateComboProduct(product.id, {
+      const updated = await updateComboProduct(locale, product.id, {
         ...formData,
         price: Number(formData.price),
-        discountPrice: Number(formData.discountPrice)
+        discountPrice: Number(formData.discountPrice),
       })
       setComboProducts(
         comboProducts.map((product) =>
-          product.id === updated.id ? updated : product
-        )
+          product.id === updated.id ? updated : product,
+        ),
       )
       console.log('combo store', comboProducts)
 
@@ -66,7 +67,7 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
             required: true,
             maxLength: 20,
             onChange: handleInputChange,
-            value: formData.title
+            value: formData.title,
           }}
         />
         <FormField
@@ -75,7 +76,7 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
             required: true,
             maxLength: 75,
             onChange: handleInputChange,
-            value: formData.description
+            value: formData.description,
           }}
         />
         <FormField
@@ -84,7 +85,7 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
             required: true,
             type: 'number',
             onChange: handleInputChange,
-            value: formData.price
+            value: formData.price,
           }}
         />
         <FormField
@@ -93,13 +94,13 @@ export const EditComboForm = ({ product, setOpen }: EditComboFormProps) => {
             required: true,
             type: 'number',
             onChange: handleInputChange,
-            value: formData.discountPrice
+            value: formData.discountPrice,
           }}
         />
       </div>
       <div className="flex justify-between gap-2">
         <Form.Submit asChild>
-          <Button>  {t('save')}</Button>
+          <Button> {t('save')}</Button>
         </Form.Submit>
         <Close asChild>
           <Button intent="secondary" className="bg-grey hover:bg-grey/70">
