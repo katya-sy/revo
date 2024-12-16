@@ -6,11 +6,13 @@ import * as motion from 'framer-motion/client'
 import { useMenuAnimation } from '@/utils/use-menu-animation'
 import { animateTitle } from '@/utils/animate-config'
 import Link from 'next/link'
+import {useTranslations} from 'next-intl';
 
 export const Header = () => {
   const [open, setOpen] = useState(false)
   const scope = useMenuAnimation(open)
   const isMobile = window.innerWidth < 768
+  const t = useTranslations('HomePage');
 
   useEffect(() => {
     const body = document.querySelector('body')
@@ -29,6 +31,7 @@ export const Header = () => {
 
   return (
     <>
+      <h1>{t('title')}</h1>
       <div
         ref={scope}
         className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-17px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container"
@@ -39,7 +42,8 @@ export const Header = () => {
             open ? 'absolute md:hidden inset-0 z-[3] bg-black/60' : 'hidden'
           } md:hidden overlay`}
         />
-        <div className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
+        <div
+          className="relative max-sm:top-10 max-sm:z-[2] max-sm:absolute max-sm:inset-4 flex flex-col justify-between max-sm:gap-5 mt-16 max-sm:mt-0 max-md:mt-10">
           <Image
             src="/logo.svg"
             width={110}
@@ -63,7 +67,8 @@ export const Header = () => {
             <motion.span variants={animateTitle}>coffee</motion.span>
           </motion.h1>
         </div>
-        <div className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
+        <div
+          className="max-sm:relative after:absolute after:inset-0 flex flex-shrink sm:after:hidden after:bg-black/40 sm:ml-auto max-sm:w-screen max-sm:max-w-[575px] max-[880px]:max-w-sm max-[1100px]:max-w-lg max-sm:h-screen">
           <Image
             className="h-auto object-cover"
             src="/header-image.png"
@@ -88,7 +93,8 @@ export const Header = () => {
             <Link href="/cart" className="hover:text-beige transition-colors">
               <Cart />
             </Link>
-            <span className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
+            <span
+              className="-top-3 -right-3 absolute flex justify-center items-center bg-beige rounded-full w-5 h-5 text-sm">
               2
             </span>
           </button>
