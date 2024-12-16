@@ -7,12 +7,15 @@ import { animateTab } from '@/utils/animate-config'
 import { Giftset } from '@/types/gifset'
 import { formatPrice } from '@/utils/format-price'
 import { Button } from '../ui/button'
+import { useTranslations } from 'next-intl'
 
 interface TabContentProps {
   content: Giftset
 }
 
 export const GiftsetCard = ({ content }: TabContentProps) => {
+  const t = useTranslations('buttons')
+
   return (
     <div className="relative before:top-0 before:bottom-0 before:left-0 before:absolute flex max-md:flex-col justify-end items-center md:gap-16 lg:gap-20 max-md:before:hidden bg-white before:bg-grey lg:before:w-64 before:w-48 h-full transition-all duration-300">
       <AnimatePresence mode="wait">
@@ -69,9 +72,9 @@ export const GiftsetCard = ({ content }: TabContentProps) => {
               </div>
             </div>
             <div className="flex max-xs:flex-wrap justify-between gap-x-16 gap-y-4">
-              <Button className="w-full xs:w-48">MUA NGAY</Button>
+              <Button className="w-full xs:w-48">{t('buy')}</Button>
               <Button className="w-full xs:w-48" intent="secondary">
-                CHI TIẾT
+                {t('more')}
               </Button>
             </div>
           </motion.div>

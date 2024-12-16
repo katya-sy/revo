@@ -5,6 +5,7 @@ import { Button } from '../ui/button'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Characteristics } from '@/types/gifset'
 import { CharacteristicIcons } from '../shared/characteristic-icons'
+import { useTranslations } from 'next-intl'
 
 interface EditCharacteristicsFormProps {
   characteristic: Characteristics
@@ -21,6 +22,7 @@ export const EditCharacteristicsForm = ({
     title: characteristic.title,
     desc: characteristic.desc,
   })
+  const t = useTranslations('buttons')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -69,7 +71,7 @@ export const EditCharacteristicsForm = ({
           onClick={handleSubmit}
           className="px-2 py-1 text-sm"
         >
-          Save changes
+          {t('save')}
         </Button>
         <Button
           type="button"
@@ -82,7 +84,7 @@ export const EditCharacteristicsForm = ({
             })
           }
         >
-          Cancel
+          {t('cancel')}
         </Button>
       </div>
     </Form.Root>

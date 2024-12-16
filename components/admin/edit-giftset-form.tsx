@@ -26,7 +26,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
   const [characteristics, setCharacteristics] = useState(
     giftset.characteristics,
   )
-  const t = useTranslations('buttons');
+  const t = useTranslations('buttons')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -98,7 +98,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
       </div>
       <div className="flex justify-between gap-2">
         <Form.Submit asChild>
-          <Button>  {t('save')}</Button>
+          <Button> {t('save')}</Button>
         </Form.Submit>
         <Close asChild>
           <Button intent="secondary" className="bg-grey hover:bg-grey/70">

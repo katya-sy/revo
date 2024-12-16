@@ -48,59 +48,56 @@
       {
         "id": 1,
         "imgUrl": "/giftset-1.png",
-        "title": "Giftset \"Cà phê phin Việt Nam\" ergegrg",
+        "title": "Giftset \"Vietnamese Drip Coffee\"",
         "price": 20000,
-        "description": "FF fsdfd tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
+        "description": "A wonderful gift for coffee connoisseurs. The coffee beans are carefully selected by Revo, roasted and ground using techniques and secrets learned from renowned artisans, along with the love and passion of coffee makers... creating pure cups of coffee made just for you.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại ksejf",
-            "desc": "Fine Robusta Blend",
-            "description": "Fine dfgdfgdf"
+            "title": "Type of Beans",
+            "desc": "Fine Robusta Blend"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
-            "desc": "100 - 800m",
-            "description": "700 - 800m1"
+            "title": "Altitude",
+            "desc": "700 - 800m"
           }
         ]
       },
       {
         "id": 2,
         "imgUrl": "/giftset-1.png",
-        "title": "weg",
-        "price": 195500,
-        "description": "Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
+        "title": "Giftset \"Vietnamese Drip Coffee\"",
+        "price": 20000,
+        "description": "A wonderful gift for coffee connoisseurs. The coffee beans are carefully selected by Revo, roasted and ground using techniques and secrets learned from renowned artisans, along with the love and passion of coffee makers... creating pure cups of coffee made just for you.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại hạt",
+            "title": "Type of Beans",
             "desc": "Fine Robusta Blend"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
-            "desc": "700 - 800m",
-            "description": "1 - 80m"
+            "title": "Altitude",
+            "desc": "700 - 800m"
           }
         ]
       },
       {
         "id": 3,
         "imgUrl": "/giftset-1.png",
-        "title": "sfdgfh",
-        "price": 285000,
-        "description": "Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
+        "title": "Giftset \"Vietnamese Drip Coffee\"",
+        "price": 20000,
+        "description": "A wonderful gift for coffee connoisseurs. The coffee beans are carefully selected by Revo, roasted and ground using techniques and secrets learned from renowned artisans, along with the love and passion of coffee makers... creating pure cups of coffee made just for you.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại hạt",
+            "title": "Type of Beans",
             "desc": "Fine Robusta Blend"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
+            "title": "Altitude",
             "desc": "700 - 800m"
           }
         ]
@@ -110,34 +107,34 @@
       {
         "id": 1,
         "imgUrl": "/combo-1.png",
-        "title": "askrufhrtyr ERY44453",
+        "title": "Combo Revo Bold",
         "price": 147000,
         "discountPrice": 3455,
-        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+        "description": "The caffeine content in Revo Bold is strong enough to keep you alert at work..."
       },
       {
         "id": 2,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Revo Đậm Đà",
+        "title": "Combo Revo Bold",
         "price": 147000,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+        "description": "The caffeine content in Revo Bold is strong enough to keep you alert at work..."
       },
       {
         "id": 3,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Rdfht",
+        "title": "Combo Revo Bold",
         "price": 334534,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậee rrrrrrrrrrrrrrrrrr eeeeeeeeee gwrthrth "
+        "description": "The caffeine content in Revo Bold is strong enough to keep you alert at work..."
       },
       {
         "id": 4,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Revo Đậm Đà",
+        "title": "Combo Revo Bold",
         "price": 147000,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+        "description": "The caffeine content in Revo Bold is strong enough to keep you alert at work..."
       }
     ]
   },
@@ -190,29 +187,27 @@
       {
         "id": 1,
         "imgUrl": "/giftset-1.png",
-        "title": "Giftset \"Cà phê phin Việt Nam\" ergegrg",
+        "title": "Giftset \"Cà phê phin Việt Nam\"",
         "price": 20000,
-        "description": "FF fsdfd tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
+        "description": "Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại ksejf",
-            "desc": "Fine Robusta Blend",
-            "description": "Fine dfgdfgdf"
+            "title": "Loại hạt",
+            "desc": "Hỗn hợp Robusta hảo hạng"
           },
           {
             "iconName": "mountains",
             "title": "Độ cao",
-            "desc": "100 - 800m",
-            "description": "700 - 800m1"
+            "desc": "700 - 800m"
           }
         ]
       },
       {
         "id": 2,
         "imgUrl": "/giftset-1.png",
-        "title": "weg",
-        "price": 195500,
+        "title": "Giftset \"Cà phê phin Việt Nam\"",
+        "price": 20000,
         "description": "Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
         "characteristics": [
           {
@@ -223,16 +218,15 @@
           {
             "iconName": "mountains",
             "title": "Độ cao",
-            "desc": "700 - 800m",
-            "description": "1 - 80m"
+            "desc": "700 - 800m"
           }
         ]
       },
       {
         "id": 3,
         "imgUrl": "/giftset-1.png",
-        "title": "sfdgfh",
-        "price": 285000,
+        "title": "Giftset \"Cà phê phin Việt Nam\"",
+        "price": 20000,
         "description": "Món quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.",
         "characteristics": [
           {
@@ -252,7 +246,7 @@
       {
         "id": 1,
         "imgUrl": "/combo-1.png",
-        "title": "askrufhrtyr ERY44453",
+        "title": "Combo Revo Đậm Đà",
         "price": 147000,
         "discountPrice": 3455,
         "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
@@ -268,10 +262,10 @@
       {
         "id": 3,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Rdfht",
+        "title": "Combo Revo Đậm Đà",
         "price": 334534,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậee rrrrrrrrrrrrrrrrrr eeeeeeeeee gwrthrth "
+        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
       },
       {
         "id": 4,
@@ -332,60 +326,57 @@
       {
         "id": 1,
         "imgUrl": "/giftset-1.png",
-        "title": "Giftset 'Cà phê phin Việt Nam' ergegrg",
+        "title": "Подарочный набор \"Вьетнамский капельный кофе\"",
         "price": 20000,
-        "description": "FF.",
+        "description": "Прекрасный подарок для ценителей кофе. Кофейные зерна тщательно отбираются компанией Revo, обжариваются и молются с использованием техник и секретов, изученных у известных мастеров, а также с любовью и страстью кофейных мастеров... создавая чистые чашки кофе, приготовленные специально для вас.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại ksejf",
-            "desc": "Fine Robusta Blend",
-            "description": "Fine dfgdfgdf"
+            "title": "Тип зерен",
+            "desc": "Премиум смесь Робусты"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
-            "desc": "100 - 800m",
-            "description": "700 - 800m1"
+            "title": "Высота",
+            "desc": "700 - 800 м"
           }
         ]
       },
       {
         "id": 2,
         "imgUrl": "/giftset-1.png",
-        "title": "weg",
-        "price": 195500,
-        "description": "Món",
+        "title": "Подарочный набор \"Вьетнамский капельный кофе\"",
+        "price": 20000,
+        "description": "Прекрасный подарок для ценителей кофе. Кофейные зерна тщательно отбираются компанией Revo, обжариваются и молются с использованием техник и секретов, изученных у известных мастеров, а также с любовью и страстью кофейных мастеров... создавая чистые чашки кофе, приготовленные специально для вас.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại hạt",
-            "desc": "Fine Robusta Blend"
+            "title": "Тип зерен",
+            "desc": "Премиум смесь Робусты"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
-            "desc": "700 - 800m",
-            "description": "1 - 80m"
+            "title": "Высота",
+            "desc": "700 - 800 м"
           }
         ]
       },
       {
         "id": 3,
         "imgUrl": "/giftset-1.png",
-        "title": "sfdgfh",
-        "price": 285000,
-        "description": "Món.",
+        "title": "Подарочный набор \"Вьетнамский капельный кофе\"",
+        "price": 20000,
+        "description": "Прекрасный подарок для ценителей кофе. Кофейные зерна тщательно отбираются компанией Revo, обжариваются и молются с использованием техник и секретов, изученных у известных мастеров, а также с любовью и страстью кофейных мастеров... создавая чистые чашки кофе, приготовленные специально для вас.",
         "characteristics": [
           {
             "iconName": "grains",
-            "title": "Loại hạt",
-            "desc": "Fine Robusta Blend"
+            "title": "Тип зерен",
+            "desc": "Премиум смесь Робусты"
           },
           {
             "iconName": "mountains",
-            "title": "Độ cao",
-            "desc": "700 - 800m"
+            "title": "Высота",
+            "desc": "700 - 800 м"
           }
         ]
       }
@@ -394,34 +385,34 @@
       {
         "id": 1,
         "imgUrl": "/combo-1.png",
-        "title": "askrufhrtyr ERY44453",
+        "title": "Комбо Revo Насыщенный",
         "price": 147000,
         "discountPrice": 3455,
-        "description": "Hàm."
+        "description": "Содержание кофеина в Revo Насыщенный достаточно высоко, чтобы поддерживать вашу бдительность на работе..."
       },
       {
         "id": 2,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Revo Đậm Đà",
+        "title": "Комбо Revo Насыщенный",
         "price": 147000,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+        "description": "Содержание кофеина в Revo Насыщенный достаточно высоко, чтобы поддерживать вашу бдительность на работе..."
       },
       {
         "id": 3,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Rdfht",
+        "title": "Комбо Revo Насыщенный",
         "price": 334534,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậee rrrrrrrrrrrrrrrrrr eeeeeeeeee gwrthrth."
+        "description": "Содержание кофеина в Revo Насыщенный достаточно высоко, чтобы поддерживать вашу бдительность на работе..."
       },
       {
         "id": 4,
         "imgUrl": "/combo-1.png",
-        "title": "Combo Revo Đậm Đà",
+        "title": "Комбо Revo Насыщенный",
         "price": 147000,
         "discountPrice": 147000,
-        "description": "Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc..."
+        "description": "Содержание кофеина в Revo Насыщенный достаточно высоко, чтобы поддерживать вашу бдительность на работе..."
       }
     ]
   }
