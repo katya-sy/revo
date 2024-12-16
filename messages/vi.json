@@ -1,6 +1,19 @@
 {
-  "HomePage": {
-    "title": "rthfsht",
-    "about": "Go to the about page"
+  "header": {
+    "mainTitle": {
+      "1": "Của bạn",
+      "2": "cá nhân hóa",
+      "3": "cà phê"
+    },
+    "navbar": {
+      "header": "Trang chủ",
+      "links": {
+        "coffee": "Cà phê",
+        "lng": "Ngôn ngữ",
+        "combo": "Bộ combo",
+        "giftset": "Bộ quà tặng",
+        "admin": "Quản trị viên"
+      }
+    }
   }
 }

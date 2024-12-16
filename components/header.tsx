@@ -12,7 +12,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false)
   const scope = useMenuAnimation(open)
   const isMobile = window.innerWidth < 768
-  const t = useTranslations('HomePage');
+  const t = useTranslations('header');
 
   useEffect(() => {
     const body = document.querySelector('body')
@@ -31,7 +31,6 @@ export const Header = () => {
 
   return (
     <>
-      <h1>{t('title')}</h1>
       <div
         ref={scope}
         className="md:relative after:top-0 after:bottom-0 after:left-[calc(100%-17px)] after:absolute flex items-stretch max-md:after:hidden after:bg-blue max-md:pr-0 max-sm:pl-0 after:w-[calc((100vw-100%)/2+20px)] container"
@@ -55,16 +54,16 @@ export const Header = () => {
             whileInView="show"
             initial="hidden"
             variants={animateTitle}
-            className="bottom-0 absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight"
+            className="bottom-0 text-nowrap absolute flex flex-col mb-16 max-sm:mb-0 max-md:mb-10 font-black font-montserrat text-[54px] text-grey sm:text-blue max-sm:text-4xl max-md:text-5xl max-[330px]:text-3xl uppercase max-md:leading-tight"
           >
-            <motion.span variants={animateTitle}>Your</motion.span>
+            <motion.span variants={animateTitle}>{t('mainTitle.1')}</motion.span>
             <motion.span
               variants={animateTitle}
               className="relative after:top-0 max-sm:after:-right-2 after:-right-4 after:bottom-0 max-sm:after:-left-2 after:-left-4 z-[2] after:-z-[2] after:absolute flex justify-center items-center after:bg-beige max-sm:w-max text-grey"
             >
-              personalized
+              {t('mainTitle.2')}
             </motion.span>
-            <motion.span variants={animateTitle}>coffee</motion.span>
+            <motion.span variants={animateTitle}>{t('mainTitle.3')}</motion.span>
           </motion.h1>
         </div>
         <div
@@ -100,30 +99,30 @@ export const Header = () => {
           </button>
           <nav>
             <ul className="flex flex-col gap-8 font-light text-grey uppercase">
-              <li className="font-bold">Trang Chu</li>
+              <li className="font-bold">{t('navbar.header')}</li>
               <li className="hover:text-beige transition-colors">
                 <Link onClick={handleLinkClick} href="#products">
-                  Coffee
+                  {t('navbar.links.coffee')}
                 </Link>
               </li>
               <li className="hover:text-beige transition-colors">
                 <Link onClick={handleLinkClick} href="">
-                  Phin Ma Mau
+                  {t('navbar.links.lng')}
                 </Link>
               </li>
               <li className="hover:text-beige transition-colors">
                 <Link onClick={handleLinkClick} href="#combo">
-                  Combo Phin Phe
+                  {t('navbar.links.combo')}
                 </Link>
               </li>
               <li className="hover:text-beige transition-colors">
                 <Link onClick={handleLinkClick} href="#giftset">
-                  Giftset
+                  {t('navbar.links.giftset')}
                 </Link>
               </li>
               <li className="hover:text-beige transition-colors">
                 <Link onClick={handleLinkClick} href="/admin">
-                  Admin
+                  {t('navbar.links.admin')}
                 </Link>
               </li>
             </ul>

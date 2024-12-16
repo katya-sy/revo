@@ -1,6 +1,19 @@
 {
-  "HomePage": {
-    "title": "привет мир!",
-    "about": "Go to the about page"
+  "header": {
+    "mainTitle": {
+      "1": "Ваш",
+      "2": "уникальный",
+      "3": "кофе"
+    },
+    "navbar": {
+      "header": "Главная",
+      "links": {
+        "coffee": "Кофе",
+        "lng": "Язык",
+        "combo": "Комбо наборы",
+        "giftset": "Подарки",
+        "admin": "Админка"
+      }
+    }
   }
 }

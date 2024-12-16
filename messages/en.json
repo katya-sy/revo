@@ -1,6 +1,19 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "header": {
+    "mainTitle": {
+      "1": "Your",
+      "2": "personalized",
+      "3": "coffee"
+    },
+    "navbar": {
+      "header": "Home Page",
+      "links": {
+        "coffee": "Coffee",
+        "lng": "Language",
+        "combo": "Combosets",
+        "giftset": "Giftsets",
+        "admin": "Admin"
+      }
+    }
   }
 }
