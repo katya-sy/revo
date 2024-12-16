@@ -6,11 +6,13 @@ import { Button } from '../ui/button'
 import * as Dialog from '@radix-ui/react-dialog'
 import { CustomDialogPortal } from '../ui/custom-dialog-portal'
 import { formatPrice } from '@/utils/format-price'
+import { useTranslations } from 'next-intl'
 
 export const CartList = () => {
   const cartProducts = useCartStore((state) => state.cartProducts)
   const setCartProducts = useCartStore((state) => state.setCartProducts)
   const [open, setOpen] = useState(false)
+  const t = useTranslations('cart');
 
   useEffect(() => {
     const products = localStorage.getItem('cart')
@@ -21,7 +23,7 @@ export const CartList = () => {
   return (
     <div className="relative before:top-0 before:right-[93%] before:bottom-0 before:absolute flex flex-col gap-16 max-sm:before:hidden before:bg-blue py-24 before:w-[calc(100vw-93%)] min-h-dvh container">
       <h3 className="font-black font-montserrat text-3xl text-blue text-center uppercase">
-        Your cart
+        {t('title')}
       </h3>
       <div className="items-stretch gap-8 grid grid-cols-2 max-[1130px]:grid-cols-1 max-sm:grid-cols-2 max-xs:grid-cols-1">
         {cartProducts &&
@@ -38,18 +40,18 @@ export const CartList = () => {
         <div className="flex justify-end gap-5">
           <Dialog.Root open={open} onOpenChange={setOpen}>
             <Dialog.Trigger asChild>
-              <Button>Оплатить</Button>
+              <Button>{t('pay')}</Button>
             </Dialog.Trigger>
             <CustomDialogPortal setOpen={setOpen}>
               <div className="flex flex-col gap-5">
                 <Dialog.Title asChild>
                   <h2 className="font-black font-montserrat text-2xl text-center text-grey uppercase">
-                    Thank you for your purchase!
+                    {t('modalTitle')}
                   </h2>
                 </Dialog.Title>
                 <Dialog.Description asChild>
                   <p className="font-light text-grey text-lg">
-                    The purchase price was{' '}
+                    {t('modalDesc')}{' '}
                     {formatPrice(
                       cartProducts.reduce(
                         (sum, prod) => (sum += prod.product.price * prod.count),
@@ -62,12 +64,12 @@ export const CartList = () => {
             </CustomDialogPortal>
           </Dialog.Root>
           <Button intent="secondary" onClick={() => setCartProducts([])}>
-            Очистить корзину
+            {t('clear')}
           </Button>
         </div>
       ) : (
         <h3 className="font-light text-2xl text-blue text-center">
-          Your cart is empty
+          {t('empty')}
         </h3>
       )}
     </div>

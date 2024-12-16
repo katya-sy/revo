@@ -55,6 +55,21 @@
   },
   "buttons": {
     "buy": "MUA NGAY",
-    "more": "CHI TIẾT"
+    "more": "CHI TIẾT",
+    "save": "Lưu thay đổi",
+    "cancel": "mặt sau"
+  },
+  "cart": {
+    "title": "Giỏ hàng của bạn",
+    "pay": "Thanh toán",
+    "modalTitle": "Cảm ơn bạn đã mua hàng!",
+    "modalDesc": "Giá mua hàng là",
+    "clear": "Xóa giỏ hàng",
+    "empty": "Giỏ hàng của bạn trống"
+  },
+  "admin": {
+    "products": "Chỉnh sửa thẻ sản phẩm",
+    "combo": "Chỉnh sửa thẻ combo",
+    "giftsets": "Chỉnh sửa bộ quà tặng"
   }
 }

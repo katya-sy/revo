@@ -8,6 +8,7 @@ import { updateGiftset } from '@/utils/api'
 import { Giftset } from '@/types/gifset'
 import { useGiftsetStore } from '@/store/giftset-store'
 import { EditCharacteristicsForm } from './edit-characteristics-form'
+import { useTranslations } from 'next-intl'
 
 interface EditGiftsetFormProps {
   giftset: Giftset
@@ -25,6 +26,7 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
   const [characteristics, setCharacteristics] = useState(
     giftset.characteristics,
   )
+  const t = useTranslations('buttons');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -96,11 +98,11 @@ export const EditGiftsetForm = ({ giftset, setOpen }: EditGiftsetFormProps) => {
       </div>
       <div className="flex justify-between gap-2">
         <Form.Submit asChild>
-          <Button>Save changes</Button>
+          <Button>  {t('save')}</Button>
         </Form.Submit>
         <Close asChild>
           <Button intent="secondary" className="bg-grey hover:bg-grey/70">
-            Cancel
+            {t('cancel')}
           </Button>
         </Close>
       </div>

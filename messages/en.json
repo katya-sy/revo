@@ -55,6 +55,21 @@
   },
   "buttons": {
     "buy": "BUY NOW",
-    "more": "DETAILS"
+    "more": "DETAILS",
+    "save": "Save changes",
+    "cancel": "Cancel"
+  },
+  "cart": {
+    "title": "Your cart",
+    "pay": "Pay",
+    "modalTitle": "Thank you for your purchase!",
+    "modalDesc": "The purchase price was",
+    "clear": "Clear basket",
+    "empty": "Your cart is empty"
+  },
+  "admin": {
+    "products": "Edit product cards",
+    "combo": "Edit combo cards",
+    "giftsets": "Edit giftsets"
   }
 }
